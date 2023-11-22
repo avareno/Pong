@@ -1,22 +1,20 @@
-package org.example;
+package com.aor.pong;
 
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Player extends Element{
-    Player(int x, int y){
+public class Walls extends Element {
+
+    public Walls(int x , int y)
+    {
         setPosition(x,y);
     }
-    private void setPosition(int x, int y) {
-        Position position = new Position(x,y);
+
+    public void setPosition(int c, int i)
+    {
+        Position position = new Position(c,i);
         setPosition(position);
-    }
-    public void moveup(){
-        setPosition(getPosition().getX(), getPosition().getY()-1);
-    }
-    public void movedown(){
-        setPosition(getPosition().getX(), getPosition().getY()+1);
     }
 
     @Override

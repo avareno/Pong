@@ -1,12 +1,9 @@
-package org.example;
+package com.aor.pong;
 
 import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import org.example.Position;
 
-import java.util.Objects;
+import java.io.IOException;
 
 public abstract class Element {
     private Position position;
@@ -24,5 +21,13 @@ public abstract class Element {
     }
     public void draw(TextGraphics graphics) {
         graphics.enableModifiers(SGR.BOLD);
+    }
+
+    public static class Application {
+        public static void main(String[] args) throws IOException {
+            Menu f = new Menu();
+            f.run();
+
+        }
     }
 }

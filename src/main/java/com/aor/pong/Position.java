@@ -1,4 +1,4 @@
-package org.example;
+package com.aor.pong;
 
 public class Position {
     private int x;
