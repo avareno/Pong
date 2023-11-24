@@ -1,4 +1,4 @@
-package com.aor.pong;
+package org.example;
 
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -9,6 +9,7 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import controler.game.DifferentGame;
 
 import java.io.IOException;
 
@@ -88,7 +89,7 @@ public class Menu {
                 cg.run();
                 break;
             case 1:
-                ClassicGame.DifferentGame dg = new ClassicGame.DifferentGame(screen);
+                DifferentGame dg = new DifferentGame(screen);
                 dg.run();
                 break;
             case 2:

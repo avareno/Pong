@@ -1,4 +1,4 @@
-package com.aor.pong;
+package org.example;
 
 public interface Game {
 

@@ -1,4 +1,4 @@
-package com.aor.pong;
+package org.example;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -110,12 +110,5 @@ public class ClassicGame implements Game{
         this.walls = createWalls();
         this.player1 =createPlayers(1);
         this.player2=createPlayers(2);
-    }
-
-    public static class DifferentGame implements Game {
-        public void draw(){};
-        public void run(){};
-        public DifferentGame(Screen screen){}
-
     }
 }
