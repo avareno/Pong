@@ -1,6 +1,7 @@
 package org.example;
 
-import com.googlecode.lanterna.SGR;
+import com.aor.pong.model.Position;
+import com.aor.pong.model.game.elements.Element;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;

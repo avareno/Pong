@@ -1,12 +1,8 @@
 package org.example;
 
 import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import org.example.Position;
-
-import java.util.Objects;
+import com.aor.pong.model.Position;
 
 public abstract class Element {
     private Position position;

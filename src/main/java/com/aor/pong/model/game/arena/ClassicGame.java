@@ -1,5 +1,8 @@
 package org.example;
 
+import com.aor.pong.model.game.arena.Game;
+import com.aor.pong.model.game.elements.Player;
+import com.aor.pong.model.game.elements.Walls;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
@@ -8,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassicGame implements Game{
+public class ClassicGame implements Game {
     private Screen screen;
     private List<Walls> walls;
     private List<Player> player1,player2;
@@ -66,13 +69,13 @@ public class ClassicGame implements Game{
         screen.clear();
         TextGraphics textGraphics = screen.newTextGraphics();
         for(Walls at: walls){
-            at.draw(textGraphics);
+            //at.draw(textGraphics);
         }
         for(Player at: player1){
-            at.draw(textGraphics);
+            //at.draw(textGraphics);
         }
         for(Player at: player2){
-            at.draw(textGraphics);
+            //at.draw(textGraphics);
         }
         screen.refresh();
     }
@@ -110,5 +113,12 @@ public class ClassicGame implements Game{
         this.walls = createWalls();
         this.player1 =createPlayers(1);
         this.player2=createPlayers(2);
+    }
+
+    public static class DifferentGame implements Game {
+        public void draw(){};
+        public void run(){};
+        public DifferentGame(Screen screen){}
+
     }
 }

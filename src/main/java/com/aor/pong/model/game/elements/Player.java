@@ -1,10 +1,12 @@
 package org.example;
 
+import com.aor.pong.model.Position;
+import com.aor.pong.model.game.elements.Element;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Player extends Element{
+public class Player extends Element {
     Player(int x, int y){
         setPosition(x,y);
     }

@@ -9,7 +9,6 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import controler.game.DifferentGame;
 
 import java.io.IOException;
 
@@ -89,7 +88,7 @@ public class Menu {
                 cg.run();
                 break;
             case 1:
-                DifferentGame dg = new DifferentGame(screen);
+                ClassicGame.DifferentGame dg = new ClassicGame.DifferentGame(screen);
                 dg.run();
                 break;
             case 2:
