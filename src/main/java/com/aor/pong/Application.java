@@ -1,28 +1,41 @@
-package org.example;
+package com.aor.pong;
 
-import com.aor.pong.gui.GUI;
+import com.aor.pong.gui.LanternaGUI;
 import com.aor.pong.model.menu.Menu;
 import com.aor.pong.states.MenuState;
 import com.aor.pong.states.State;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Application {
-
+    private final LanternaGUI gui;
     private State state;
-    private GUI gui;
-    public Application(){
-        this.state=new MenuState(new Menu());
+
+    public Application() throws FontFormatException, IOException, URISyntaxException {
+        this.gui = new LanternaGUI(70, 30);
+        this.state = new MenuState(new Menu());
     }
 
-    public void start() throws IOException {
+    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
+        new Application().start();
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    private void start() throws IOException {
         int FPS = 10;
         int frameTime = 1000 / FPS;
 
-        while(state!=null){
+
+        while (this.state != null) {
             long startTime = System.currentTimeMillis();
 
             state.step(this, gui, startTime);
+
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
@@ -32,10 +45,7 @@ public class Application {
             } catch (InterruptedException e) {
             }
         }
-    }
-    public static void main(String[] args) throws IOException {
-        new Application().start();
-    }
 
-
+        gui.close();
+    }
 }

@@ -1,4 +1,4 @@
-package org.example;
+package com.aor.pong.model.menu;
 
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -9,108 +9,54 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.aor.pong.model.game.arena.ClassicGame;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class Menu {
 
-    private int count=0;
+    private final List<String> entries;//list with the options
+    private int currentEntry = 0;//current option
 
+    public Menu() {
+        this.entries = Arrays.asList("Classic", "Different Modes","Exit");
+    }//inicialization
 
-    private Screen screen;
-    private int width=100,height=50;
-
-    public int getHeight() {
-        return height;
+    public void nextEntry() {//fetch next entry
+        currentEntry++;
+        if (currentEntry > this.entries.size() - 1)
+            currentEntry = 0;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void previousEntry() {//fetch previous entry
+        currentEntry--;
+        if (currentEntry < 0)
+            currentEntry = this.entries.size() - 1;
     }
 
-    public int getWidth() {
-        return width;
-    }
+    public String getEntry(int i) {
+        return entries.get(i);
+    }//get current entry
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
+    public boolean isSelected(int i) {
+        return currentEntry == i;
+    }//check if is selected
 
-    private void draw() throws IOException {
-        screen.clear();
-        int cursorX=(width*2)/5;
-        int cursorY=(height*2)/5;
-        TextGraphics textGraphics = screen.newTextGraphics();
+    public boolean isSelectedExit() {
+        return isSelected(2);
+    }//specific entry
 
-        // Draw three 'X' characters, and change the color based on count % 3
-        for (int i = 0; i < 3; i++) {
-            if (count % 3 == i) {
-                textGraphics.setForegroundColor(TextColor.ANSI.RED);
-            } else {
-                textGraphics.setForegroundColor(TextColor.ANSI.DEFAULT);
-            }
-            switch(i){
+    public boolean isSelectedOtherGame() {
+        return isSelected(1);
+    }//specific entry
+    public boolean isSelectedClassicGame() {
+        return isSelected(0);
+    }//specific entry
 
-                case 0:   textGraphics.putString(cursorX, cursorY + i * 2, "Clássico");
-                break;
-                case 1:
-                    textGraphics.putString(cursorX, cursorY + i * 2, "Modos diferentes");
-                    break;
-                case 2:
-                    textGraphics.putString(cursorX, cursorY + i * 2, "End of Game");
-                    break;
-            }
-
-
-        }
-
-        screen.refresh();
-    }
-    public void run() throws IOException {
-        while (true) {
-            draw();
-            KeyStroke key = screen.readInput();
-
-            if (key.getKeyType() == KeyType.Enter) {
-                break; // exit the loop on Enter key
-            } else if (key.getKeyType() == KeyType.ArrowDown) {
-                count++;
-            } else if (key.getKeyType() == KeyType.ArrowUp) {
-                count--;
-            }
-            if(count<0){
-                count=3+count;
-            }
-        }
-        switch(count%3){
-            case 0:
-                ClassicGame cg = new ClassicGame(screen);
-                cg.run();
-                break;
-            case 1:
-                ClassicGame.DifferentGame dg = new ClassicGame.DifferentGame(screen);
-                dg.run();
-                break;
-            case 2:
-                screen.close();
-                break;
-        }
-
-
-    }
-    Menu()
-    {
-        try {
-            TerminalSize terminalSize = new TerminalSize(width, height);
-            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-            Terminal terminal = terminalFactory.createTerminal();
-            screen = new TerminalScreen(terminal);
-            screen.setCursorPosition(null); // we don't need a cursor
-            screen.startScreen(); // screens must be started
-            screen.doResizeIfNecessary(); // resize screen if necessary
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    public int getNumberEntries() {
+        return this.entries.size();
+    }//get number of entries
 
 }

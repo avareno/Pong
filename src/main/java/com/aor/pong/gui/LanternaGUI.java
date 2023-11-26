@@ -1,6 +1,7 @@
 package com.aor.pong.gui;
 
 import com.aor.pong.model.Position;
+import com.aor.pong.model.game.elements.Player;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -84,9 +85,18 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawWall(Position position) {
-        drawCharacter(position.getX(), position.getY(), '#', "#3333FF");
+        drawCharacter(position.getX(), position.getY(), '█', "#ffffff");
     }
 
+    @Override
+    public void drawPlayer(Position position) {
+        drawCharacter(position.getX(), position.getY(), '█', "#FFD700");
+    }
+
+    @Override
+    public void drawBall(Position position){
+        drawCharacter(position.getX(), position.getY(), '█', "#FFD700");
+    }
 
     @Override
     public void drawText(Position position, String text, String color) {
@@ -115,4 +125,6 @@ public class LanternaGUI implements GUI {
     public void close() throws IOException {
         screen.close();
     }
+
+
 }

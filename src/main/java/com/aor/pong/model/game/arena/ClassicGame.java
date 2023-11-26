@@ -1,21 +1,25 @@
-package org.example;
+package com.aor.pong.model.game.arena;
 
-import com.aor.pong.model.game.arena.Game;
+import com.aor.pong.model.Position;
+import com.aor.pong.model.game.elements.Ball;
 import com.aor.pong.model.game.elements.Player;
 import com.aor.pong.model.game.elements.Walls;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
-import com.googlecode.lanterna.screen.Screen;
-import java.io.IOException;
-import java.util.ArrayList;
+
 import java.util.List;
 
-public class ClassicGame implements Game {
-    private Screen screen;
+public class ClassicGame {
     private List<Walls> walls;
     private List<Player> player1,player2;
-    private int width=100,height=50;
+    private Ball ball;
+    private int width,height;
+
+    public Ball getBall() {
+        return ball;
+    }
+
+    public void setBall(Ball ball) {
+        this.ball = ball;
+    }
 
     public List<Player> getPlayer2() {
         return player2;
@@ -40,85 +44,17 @@ public class ClassicGame implements Game {
         this.player1 = player1;
     }
 
-    //Model
-    public List<Walls> createWalls(){
-        List<Walls> walls = new ArrayList<>();
-        for (int c = 0; c < width; c++) {
-            walls.add(new Walls(c, 0));
-            walls.add(new Walls(c, height - 1));
-        }
-        return walls;
-    }
-    public List<Player> createPlayers(int i){
-        List<Player> players = new ArrayList<>();
-        if(i==1){
-            for (int r = (height/2)-5; r<(height/2)+1;r++) {
-                players.add(new Player(0, r));
-            }
-        }
-        else if(i==2){
-            for (int r = (height/2)-5; r<(height/2)+1;r++) {
-                players.add(new Player(width-1, r));
-            }
-        }
-        return players;
+    public boolean isEmpty(Position position) {
+        for (Walls wall : walls)
+            if (wall.getPosition().equals(position))return false;
+        return true;
     }
 
-    //viewer
-    private void draw() throws IOException {
-        screen.clear();
-        TextGraphics textGraphics = screen.newTextGraphics();
-        for(Walls at: walls){
-            //at.draw(textGraphics);
-        }
-        for(Player at: player1){
-            //at.draw(textGraphics);
-        }
-        for(Player at: player2){
-            //at.draw(textGraphics);
-        }
-        screen.refresh();
-    }
-
-    //controler
-    public void processKey(KeyStroke key){
-        switch(key.getKeyType()){
-            case ArrowUp:
-                for(Player at: getPlayer1()){
-                    if(at.getPosition().getY()==height - 1)break;
-                    at.moveup();
-                }
-                break;
-            case ArrowDown:
-                for(Player at: getPlayer1()){
-                    if(at.getPosition().getY()==1)break;
-                    at.movedown();
-                }
-                break;
-        }
-    }
-    public void run() throws IOException {
-        draw();
-        KeyStroke key = screen.readInput();
-        while((key.getKeyType()!= KeyType.EOF)) {
-            processKey(key);
-            draw();
-            key = screen.readInput();
-
-        }
-    }
-    ClassicGame(Screen screen)
+    public ClassicGame(int width,int height)
     {
-        this.screen=screen;
-        this.walls = createWalls();
-        this.player1 =createPlayers(1);
-        this.player2=createPlayers(2);
+        this.width=width;
+        this.height=height;
     }
 
-    public static class DifferentGame implements Game {
-        public void draw(){};
-        public void run(){};
-        public DifferentGame(Screen screen){}
-
-    }
+ 
 }
