@@ -35,7 +35,7 @@
 - **Som** -  Permite que certas ações tenham um som característico
 - **Marcação de Pontos** - Quando a bola entr numa parede, o jogador contrário ganha um ponto, o que depois define quem ganha a partida
 
-![Mokeup.gif](..%2F..%2F..%2F..%2F..%2F..%2F..%2FTransfer%C3%AAncias%2FGrava%C3%A7%C3%A3o%20de%20ecr%C3%A3%20a%20partir%20de%202023-11-26%2022-20-24.gif)
+![Mock-up.gif](Mock-up.gif)
 
 
 -----
