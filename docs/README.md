@@ -34,8 +34,10 @@
 - **Vários Adversários** - Muda o formato da área de jogo e incere vários jogadores
 - **Som** -  Permite que certas ações tenham um som característico
 - **Marcação de Pontos** - Quando a bola entr numa parede, o jogador contrário ganha um ponto, o que depois define quem ganha a partida
-
+  
 ![Mock-up.gif](Mock-up.gif)
+
+*Mock-up*
 
 
 -----
