@@ -142,8 +142,8 @@ Assim em próximas versões procuraremos polir e aprimorar o código já impleme
 -----
 ### TESTES
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
+- *Coverage Report*
+![Coverage_Report.png](Coverage_Report.png)
 
 
 -----

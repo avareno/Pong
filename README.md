@@ -48,3 +48,7 @@ Neste projeto utilizamos os seguintes modelos:
 
 -----
 ### TESTES
+
+- *Coverage Report*
+
+![Coverage_Report.png](docs/Coverage_Report.png)
