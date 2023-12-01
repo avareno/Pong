@@ -22,7 +22,7 @@ public class BallController extends Controller {
         startBallMovement();
     }
 
-    private void startBallMovement() {
+    public void startBallMovement() {
         executor = Executors.newSingleThreadScheduledExecutor();
         executor.scheduleAtFixedRate(this::moveBall, 0, 2, TimeUnit.SECONDS);
     }
@@ -31,12 +31,12 @@ public class BallController extends Controller {
         if (model.isEmpty(new Position(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY()))) {
             model.setBall(new Ball(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY(),model.getBall().getVector()));
         }else{
-
-            model.setBall(new Ball(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY(),model.getBall().invertVector()));
-
+            if(model.isPlayer(new Position(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY()))) {
+                model.setBall(new Ball(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY(), model.getBall().invertVector(1)));
+            }else if(model.isWall(new Position(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY()))){
+                model.setBall(new Ball(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY(), model.getBall().invertVector(0)));
+            }
         }
-
-
     }
 
     @Override

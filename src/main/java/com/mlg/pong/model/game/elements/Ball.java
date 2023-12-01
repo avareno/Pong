@@ -25,9 +25,12 @@ public class Ball extends Element{
         this.vector = vector;
     }
 
-    public Vector invertVector(){
-        setVector(new Vector(new Position(vector.getP().getX(),-vector.getP().getY())));
-
+    public Vector invertVector(int i){
+        if(i == 0) {
+            setVector(new Vector(new Position(vector.getP().getX(), -vector.getP().getY())));
+        }else if(i == 1){
+            setVector(new Vector(new Position(-vector.getP().getX(), vector.getP().getY())));
+        }
         return this.vector;
     }
 }

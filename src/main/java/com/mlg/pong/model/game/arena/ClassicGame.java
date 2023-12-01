@@ -56,6 +56,22 @@ public class ClassicGame {
         return true;
     }
 
+    public boolean isPlayer(Position position){
+        for(Player p: player1){
+            if(p.getPosition().equals(position))return true;
+        }
+        for(Player p: player2){
+            if(p.getPosition().equals(position))return true;
+        }
+        return false;
+    }
+
+    public boolean isWall(Position position){
+        for (Walls wall : walls)
+            if (wall.getPosition().equals(position))return true;
+        return false;
+    }
+
     public ClassicGame(int width,int height)
     {
         this.width=width;
