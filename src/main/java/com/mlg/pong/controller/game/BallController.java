@@ -3,8 +3,11 @@ package com.mlg.pong.controller.game;
 import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
+import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.arena.ClassicGame;
 import com.mlg.pong.model.game.elements.Ball;
+import com.mlg.pong.model.game.elements.Player;
+import com.mlg.pong.model.game.elements.Vector;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -24,7 +27,15 @@ public class BallController extends Controller {
         executor.scheduleAtFixedRate(this::moveBall, 0, 2, TimeUnit.SECONDS);
     }
     public void moveBall(){
-        model.setBall(new Ball(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY()));
+
+        if (model.isEmpty(new Position(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY()))) {
+            model.setBall(new Ball(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY(),model.getBall().getVector()));
+        }else{
+
+            model.setBall(new Ball(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY(),model.getBall().invertVector()));
+
+        }
+
 
     }
 

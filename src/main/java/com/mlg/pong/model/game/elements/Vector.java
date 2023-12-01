@@ -8,9 +8,9 @@ public class Vector {
     private Position p;
     public Vector() {
         Random rand = new Random();
-        int x  = rand.nextInt(0,2);
-        int y  = rand.nextInt(0,2);
-        p = new Position(x,y);
+        int x = rand.nextBoolean() ? 1 : -1;
+        int y = rand.nextBoolean() ? 1 : -1;
+        p = new Position(x, y);
     }
 
     public Position getP() {
@@ -24,4 +24,6 @@ public class Vector {
     public Vector(Position p){
         this.p=p;
     }
+
+
 }

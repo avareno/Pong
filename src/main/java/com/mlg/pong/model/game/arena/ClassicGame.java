@@ -47,6 +47,12 @@ public class ClassicGame {
     public boolean isEmpty(Position position) {
         for (Walls wall : walls)
             if (wall.getPosition().equals(position))return false;
+        for(Player p: player1){
+            if(p.getPosition().equals(position))return false;
+        }
+        for(Player p: player2){
+            if(p.getPosition().equals(position))return false;
+        }
         return true;
     }
 
