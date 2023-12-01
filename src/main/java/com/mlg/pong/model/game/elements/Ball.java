@@ -9,4 +9,12 @@ public class Ball extends Element{
         super(x,y);
         this.vector=new Vector();
     }
+
+    public Vector getVector() {
+        return vector;
+    }
+
+    public void setVector(Vector vector) {
+        this.vector = vector;
+    }
 }
