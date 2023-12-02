@@ -22,7 +22,7 @@ public class BallController extends Controller {
 
     public void startBallMovement() {
         executor = Executors.newSingleThreadScheduledExecutor();
-        executor.scheduleAtFixedRate(this::moveBall, 0, 2, TimeUnit.SECONDS);
+        executor.scheduleAtFixedRate(this::moveBall, 0, 1, TimeUnit.SECONDS);
     }
     public void moveBall(){
         if(model.getBall().getPosition().getX()==0 || model.getBall().getPosition().getX()==model.getWidth()-1){
