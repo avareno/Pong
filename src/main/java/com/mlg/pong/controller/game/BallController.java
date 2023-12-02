@@ -27,7 +27,9 @@ public class BallController extends Controller {
         executor.scheduleAtFixedRate(this::moveBall, 0, 2, TimeUnit.SECONDS);
     }
     public void moveBall(){
-
+        if(model.getBall().getPosition().getX()==0 || model.getBall().getPosition().getX()==model.getWidth()-1){
+            model.setBall(model.getWidth()/2,model.getHeight()/2);
+        }
         if (model.isEmpty(new Position(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY()))) {
             model.setBall(new Ball(model.getBall().getPosition().getX()+model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY()+model.getBall().getVector().getP().getY(),model.getBall().getVector()));
         }else{
@@ -37,6 +39,7 @@ public class BallController extends Controller {
                 model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(0)));
             }
         }
+
     }
 
     @Override

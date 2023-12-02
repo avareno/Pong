@@ -3,6 +3,7 @@ package com.mlg.pong.model.game.arena;
 import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.elements.Ball;
 import com.mlg.pong.model.game.elements.Player;
+import com.mlg.pong.model.game.elements.Vector;
 import com.mlg.pong.model.game.elements.Walls;
 
 import java.util.List;
@@ -66,6 +67,22 @@ public class ClassicGame {
         return false;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
     public boolean isWall(Position position){
         for (Walls wall : walls)
             if (wall.getPosition().equals(position))return true;
@@ -78,5 +95,8 @@ public class ClassicGame {
         this.height=height;
     }
 
- 
+
+    public void setBall(int i, int i1) {
+        ball = new Ball(i,i1);
+    }
 }
