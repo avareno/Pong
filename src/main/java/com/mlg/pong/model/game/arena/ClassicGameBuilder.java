@@ -1,5 +1,6 @@
 package com.mlg.pong.model.game.arena;
 
+import com.mlg.pong.model.game.elements.Computer;
 import com.mlg.pong.model.game.elements.Player;
 import com.mlg.pong.model.game.elements.Walls;
 import com.mlg.pong.model.game.elements.Ball;
@@ -21,6 +22,14 @@ public class ClassicGameBuilder {
             walls.add(new Walls(c, height - 1));
         }
         return walls;
+    }
+
+    protected List<Computer> createComputer(){
+        List<Computer> computer = new ArrayList<>();
+        for (int r = (height/2)-5; r<(height/2)+1;r++) {
+            computer.add(new Computer(width-1, r));
+        }
+        return computer;
     }
 
     protected List<Player> createPlayers(int i){
@@ -58,7 +67,7 @@ public class ClassicGameBuilder {
     public ClassicGame createClassicGame() {
             ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
             cgame.setPlayer1(createPlayers(1));
-            cgame.setPlayer2(createPlayers(2));
+            cgame.setPlayer2(createComputer());
             cgame.setWalls(createWalls());
             cgame.setBall(createBall());
             cgame.setPoint1(0);
@@ -66,4 +75,6 @@ public class ClassicGameBuilder {
 
             return cgame;
     }
+
+
 }

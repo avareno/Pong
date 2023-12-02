@@ -17,6 +17,7 @@ public interface GUI {
     void close() throws IOException;
 
     void drawPlayer(Position position);
+    void drawComputer(Position position);
 
     void drawBall(Position position);
 

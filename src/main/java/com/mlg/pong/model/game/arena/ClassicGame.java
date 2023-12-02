@@ -2,6 +2,7 @@ package com.mlg.pong.model.game.arena;
 
 import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.elements.Ball;
+import com.mlg.pong.model.game.elements.Computer;
 import com.mlg.pong.model.game.elements.Player;
 import com.mlg.pong.model.game.elements.Walls;
 
@@ -9,7 +10,8 @@ import java.util.List;
 
 public class ClassicGame {
     private List<Walls> walls;
-    private List<Player> player1,player2;
+    private List<Player> player1;
+    private List<Computer> player2;
     private Ball ball;
     private int width,height;
 
@@ -23,9 +25,6 @@ public class ClassicGame {
         this.points2 = points2;
     }
 
-    public int getPoint1() {
-        return point1;
-    }
 
     public void setPoint1(int point1) {
         this.point1 = point1;
@@ -39,11 +38,11 @@ public class ClassicGame {
         this.ball = ball;
     }
 
-    public List<Player> getPlayer2() {
+    public List<Computer> getPlayer2() {
         return player2;
     }
 
-    public void setPlayer2(List<Player> player2) {
+    public void setPlayer2(List<Computer> player2) {
         this.player2 = player2;
     }
 
@@ -78,7 +77,7 @@ public class ClassicGame {
         for(Player p: player1){
             if(p.getPosition().equals(position))return true;
         }
-        for(Player p: player2){
+        for(Computer p: player2){
             if(p.getPosition().equals(position))return true;
         }
         return false;

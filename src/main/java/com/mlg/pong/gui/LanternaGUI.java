@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
@@ -67,6 +68,9 @@ public class LanternaGUI implements GUI {
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
+        while(keyStroke!=null){
+
+        }
 
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
@@ -93,8 +97,13 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawBall(Position position){
+    public void drawComputer(Position position) {
         drawCharacter(position.getX(), position.getY(), '█', "#FFD700");
+    }
+
+    @Override
+    public void drawBall(Position position){
+        drawCharacter(position.getX(), position.getY(), '█', "#aa0000");
     }
 
     @Override
