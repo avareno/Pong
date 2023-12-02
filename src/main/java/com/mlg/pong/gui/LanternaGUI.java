@@ -68,8 +68,11 @@ public class LanternaGUI implements GUI {
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
-        while(keyStroke!=null){
 
+        KeyStroke at = screen.pollInput();
+
+        while(at!=null){
+            at=screen.pollInput();
         }
 
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
