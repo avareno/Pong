@@ -61,6 +61,8 @@ public class ClassicGameBuilder {
             cgame.setPlayer2(createPlayers(2));
             cgame.setWalls(createWalls());
             cgame.setBall(createBall());
+            cgame.setPoint1(0);
+            cgame.setPoints2(0);
 
             return cgame;
     }

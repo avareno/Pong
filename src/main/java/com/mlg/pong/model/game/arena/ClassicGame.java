@@ -3,7 +3,6 @@ package com.mlg.pong.model.game.arena;
 import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.elements.Ball;
 import com.mlg.pong.model.game.elements.Player;
-import com.mlg.pong.model.game.elements.Vector;
 import com.mlg.pong.model.game.elements.Walls;
 
 import java.util.List;
@@ -13,6 +12,24 @@ public class ClassicGame {
     private List<Player> player1,player2;
     private Ball ball;
     private int width,height;
+
+    private int point1, points2;
+
+    public int getPoints2() {
+        return points2;
+    }
+
+    public void setPoints2(int points2) {
+        this.points2 = points2;
+    }
+
+    public int getPoint1() {
+        return point1;
+    }
+
+    public void setPoint1(int point1) {
+        this.point1 = point1;
+    }
 
     public Ball getBall() {
         return ball;
