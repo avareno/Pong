@@ -14,16 +14,13 @@ import java.util.concurrent.TimeUnit;
 
 public class BallController extends Controller {
     private ClassicGame model = (ClassicGame) getModel();
-    private ScheduledExecutorService executor;
+    private long lastMovement;
     public BallController(ClassicGame cgame){
         super(cgame);
-        startBallMovement();
+        this.lastMovement=0;
     }
 
-    public void startBallMovement() {
-        executor = Executors.newSingleThreadScheduledExecutor();
-        executor.scheduleAtFixedRate(this::moveBall, 0, 1, TimeUnit.SECONDS);
-    }
+
     public void moveBall(){
         if(model.getBall().getPosition().getX()==0 || model.getBall().getPosition().getX()==model.getWidth()-1){
             model.setBall(model.getWidth()/2,model.getHeight()/2);
@@ -43,6 +40,9 @@ public class BallController extends Controller {
 
     @Override
     public void step(Application app, GUI.ACTION action, long time) {
-        moveBall();
+        if(time-lastMovement>100){
+            moveBall();
+            lastMovement=time;
+        }
     }
 }

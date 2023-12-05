@@ -11,7 +11,7 @@ import java.util.List;
 public class ClassicGame {
     private List<Walls> walls;
     private List<Player> player1;
-    private List<Computer> player2;
+    private List<Computer> computer;
     private Ball ball;
     private int width,height;
 
@@ -38,12 +38,12 @@ public class ClassicGame {
         this.ball = ball;
     }
 
-    public List<Computer> getPlayer2() {
-        return player2;
+    public List<Computer> getComputer() {
+        return computer;
     }
 
-    public void setPlayer2(List<Computer> player2) {
-        this.player2 = player2;
+    public void setComputer(List<Computer> computer) {
+        this.computer = computer;
     }
 
     public List<Walls> getWalls() {
@@ -67,7 +67,7 @@ public class ClassicGame {
         for(Player p: player1){
             if(p.getPosition().equals(position))return false;
         }
-        for(Player p: player2){
+        for(Player p: computer){
             if(p.getPosition().equals(position))return false;
         }
         return true;
@@ -77,7 +77,7 @@ public class ClassicGame {
         for(Player p: player1){
             if(p.getPosition().equals(position))return true;
         }
-        for(Computer p: player2){
+        for(Computer p: computer){
             if(p.getPosition().equals(position))return true;
         }
         return false;

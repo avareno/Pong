@@ -24,7 +24,7 @@ public class    ClassicGameViewer extends Viewer<ClassicGame> {
     public void drawElements(GUI gui) {
         drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElement(gui,getModel().getPlayer1(), new PlayerViewer());
-        drawElement(gui,getModel().getPlayer2(), new ComputerViewer());
+        drawElement(gui,getModel().getComputer(), new ComputerViewer());
         drawElement(gui, getModel().getBall(), new BallViewer());
     }
 

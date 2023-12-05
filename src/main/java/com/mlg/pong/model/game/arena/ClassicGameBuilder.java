@@ -67,7 +67,7 @@ public class ClassicGameBuilder {
     public ClassicGame createClassicGame() {
             ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
             cgame.setPlayer1(createPlayers(1));
-            cgame.setPlayer2(createComputer());
+            cgame.setComputer(createComputer());
             cgame.setWalls(createWalls());
             cgame.setBall(createBall());
             cgame.setPoint1(0);

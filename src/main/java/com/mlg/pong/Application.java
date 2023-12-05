@@ -1,7 +1,9 @@
 package com.mlg.pong;
 
+import com.mlg.pong.controller.game.ClassicGameController;
 import com.mlg.pong.gui.LanternaGUI;
 import com.mlg.pong.model.menu.Menu;
+import com.mlg.pong.states.ClassicGameState;
 import com.mlg.pong.states.MenuState;
 import com.mlg.pong.states.State;
 
@@ -35,8 +37,7 @@ public class Application {
             long startTime = System.currentTimeMillis();
 
             state.step(this, gui, startTime);
-
-
+            //include an if statement to check if i amg in a classic game to loop?
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
 

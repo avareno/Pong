@@ -9,23 +9,14 @@ import com.mlg.pong.model.game.elements.Ball;
 import com.mlg.pong.model.game.elements.Computer;
 
 import java.io.IOException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class ComputerController extends Controller {
-
     private ClassicGame model = (ClassicGame) getModel();
-    private ScheduledExecutorService executor;
-
-    public void startMovementComputer() {
-        executor = Executors.newSingleThreadScheduledExecutor();
-        executor.scheduleAtFixedRate(this::moveComputer, 0, 1, TimeUnit.SECONDS);
-    }
+    private long lastMovement;
 
     public ComputerController(ClassicGame cgame) {
         super(cgame);
-        startMovementComputer();
+        this.lastMovement=0;
     }
 
     public int calculatePosition(Ball ball){
@@ -34,7 +25,7 @@ public class ComputerController extends Controller {
             res += ball.getVector().getP().getX();
             res1+= ball.getVector().getP().getY();
         }
-        if(res1>model.getPlayer2().get(2).getPosition().getY()){
+        if(res1>model.getComputer().get(2).getPosition().getY()){
             return 1;
         }else {
             return -1;
@@ -43,8 +34,8 @@ public class ComputerController extends Controller {
 
     public void moveComputer(){
 
-        if (model.isEmpty(new Position(model.getPlayer2().get(2).getPosition().getX(),model.getPlayer2().get(2).getPosition().getY()+calculatePosition(model.getBall())))) {
-            for(Computer at: model.getPlayer2()){
+        if (model.isEmpty(new Position(model.getComputer().get(2).getPosition().getX(),model.getComputer().get(2).getPosition().getY()+calculatePosition(model.getBall())))) {
+            for(Computer at: model.getComputer()){
                 at.setPosition(new Position(at.getPosition().getX(),at.getPosition().getY()+calculatePosition(model.getBall())));
             }
         }
@@ -53,6 +44,9 @@ public class ComputerController extends Controller {
 
     @Override
     public void step(Application app, GUI.ACTION action, long time) throws IOException {
-        moveComputer();
+        if(time-this.lastMovement>50) {
+            moveComputer();
+            this.lastMovement=time;
+        }
     }
 }
