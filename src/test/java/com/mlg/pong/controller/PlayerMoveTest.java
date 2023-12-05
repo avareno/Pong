@@ -43,7 +43,7 @@ class PlayerMoveTest {
 
     @Test
     void movePlayerUpEmpty() {
-        controller.movePlayer1Up();
+        controller.movePlayerUp();
         for (int i = 0;i < 6; i++) {
             Position UP = new Position(initial.get(i).getX(),initial.get(i).getY()-1);
             Assertions.assertEquals(UP, game.getPlayer1().get(i).getPosition());
@@ -53,9 +53,9 @@ class PlayerMoveTest {
     @Test
     void movePlayerUpWall() {
         while(!game.getPlayer1().get(0).getPosition().equals(max.get(0))) { // Reach Max Height
-            controller.movePlayer1Up();
+            controller.movePlayerUp();
         }
-        controller.movePlayer1Up(); // Attempt to move up while at max height
+        controller.movePlayerUp(); // Attempt to move up while at max height
 
         for (int i = 0; i < 6; i++) {
             Position P = max.get(i);

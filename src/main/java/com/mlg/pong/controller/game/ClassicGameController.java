@@ -28,7 +28,7 @@ public class ClassicGameController extends Controller {
         else {
             playerController.step(app, action, time);
             ballController.step(app,action,time);
-            //computerController.step(app,action,time);
+            computerController.step(app,action,time);
         }
     }
 }

@@ -14,7 +14,7 @@ public class PlayerController extends Controller {
     }
 
 
-    public void movePlayer1Up() {
+    public void movePlayerUp() {
 
         movePlayer(model.getPlayer1().get(0).getPosition(),-1);
     }
@@ -23,8 +23,8 @@ public class PlayerController extends Controller {
         movePlayer(model.getPlayer1().get(model.getPlayer1().size()-1).getPosition(),1);
     }
 
-    private void movePlayer(Position position, int i) {
-        if (model.isEmpty(new Position(position.getX(),position.getY()+i))) {
+    public void movePlayer(Position position, int i) {
+        if (model.isEmpty(new Position(position.getX(),position.getY()+i),0)) {
             for(Player at: model.getPlayer1()){
                 at.setPosition(new Position(at.getPosition().getX(),at.getPosition().getY()+i));
             }
@@ -34,7 +34,7 @@ public class PlayerController extends Controller {
 
     @Override
     public void step(Application app, GUI.ACTION action, long time) {
-        if (action == GUI.ACTION.UP) movePlayer1Up();
+        if (action == GUI.ACTION.UP) movePlayerUp();
         if (action == GUI.ACTION.DOWN) movePlayerDown();
     }
 }

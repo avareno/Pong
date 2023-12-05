@@ -5,20 +5,20 @@ import java.util.List;
 
 public class Menu {
 
-    private final List<String> entries;//list with the options
-    private int currentEntry = 0;//current option
+    private final List<String> entries;
+    private int currentEntry = 0;
 
     public Menu() {
         this.entries = Arrays.asList("Classic", "Different Modes","Exit");
-    }//inicialization
+    }
 
-    public void nextEntry() {//fetch next entry
+    public void nextEntry() {
         currentEntry++;
         if (currentEntry > this.entries.size() - 1)
             currentEntry = 0;
     }
 
-    public void previousEntry() {//fetch previous entry
+    public void previousEntry() {
         currentEntry--;
         if (currentEntry < 0)
             currentEntry = this.entries.size() - 1;

@@ -20,13 +20,13 @@ public class ArenaTest {
     @Test
     void PositionWall() {
         for (int i = 0;i < builder.getWidth(); i++ ) {
-            assertEquals(false,game.isEmpty(new Position(i,0)));
-            assertEquals(false,game.isEmpty(new Position(i,builder.getHeight()-1)));
+            assertEquals(false,game.isEmpty(new Position(i,0),0));
+            assertEquals(false,game.isEmpty(new Position(i,builder.getHeight()-1),0));
         }
     }
 
     @Test
     void PositionEmpty() {
-        assertEquals(true,game.isEmpty(new Position(0,1)));
+        assertEquals(true,game.isEmpty(new Position(0,1),0));
     }
 }

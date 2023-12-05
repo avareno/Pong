@@ -37,7 +37,6 @@ public class Application {
             long startTime = System.currentTimeMillis();
 
             state.step(this, gui, startTime);
-            //include an if statement to check if i amg in a classic game to loop?
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
 

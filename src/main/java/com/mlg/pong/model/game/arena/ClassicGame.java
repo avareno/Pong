@@ -61,17 +61,22 @@ public class ClassicGame {
         this.player1 = player1;
     }
 
-    public boolean isEmpty(Position position) {
-        for (Walls wall : walls)
-            if (wall.getPosition().equals(position))return false;
+    public boolean isEmpty(Position position,int i) {
+        for (Walls wall : walls) {
+            if (wall.getPosition().equals(position)) return false;
+        }
         for(Player p: player1){
             if(p.getPosition().equals(position))return false;
         }
-        for(Player p: computer){
-            if(p.getPosition().equals(position))return false;
+        if(i==0) {
+            for (Computer c : computer) {
+                if (c.getPosition().equals(position)) return false;
+            }
         }
         return true;
     }
+
+
 
     public boolean isPlayer(Position position){
         for(Player p: player1){

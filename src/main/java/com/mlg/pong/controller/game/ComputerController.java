@@ -7,8 +7,11 @@ import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.arena.ClassicGame;
 import com.mlg.pong.model.game.elements.Ball;
 import com.mlg.pong.model.game.elements.Computer;
+import com.mlg.pong.model.game.elements.Player;
 
 import java.io.IOException;
+
+import static java.lang.Math.abs;
 
 public class ComputerController extends Controller {
     private ClassicGame model = (ClassicGame) getModel();
@@ -21,30 +24,51 @@ public class ComputerController extends Controller {
 
     public int calculatePosition(Ball ball){
         int res=ball.getPosition().getX(),res1=ball.getPosition().getY();
-        while(res!=model.getWidth()-1){
-            res += ball.getVector().getP().getX();
-            res1+= ball.getVector().getP().getY();
-        }
-        if(res1>model.getComputer().get(2).getPosition().getY()){
-            return 1;
-        }else {
-            return -1;
-        }
-    }
-
-    public void moveComputer(){
-
-        if (model.isEmpty(new Position(model.getComputer().get(2).getPosition().getX(),model.getComputer().get(2).getPosition().getY()+calculatePosition(model.getBall())))) {
-            for(Computer at: model.getComputer()){
-                at.setPosition(new Position(at.getPosition().getX(),at.getPosition().getY()+calculatePosition(model.getBall())));
+        if(ball.getVector().getP().getX()==1) {
+            while (res != model.getWidth() - 1) {
+                res += ball.getVector().getP().getX();
+                res1 += ball.getVector().getP().getY();
+            }
+            if (res1 < model.getComputer().get(0).getPosition().getY() || res1 <= 0) {
+                return -1;
+            } else if(res1 > model.getComputer().get(model.getComputer().size()-1).getPosition().getY()){
+                return 1;
             }
         }
-
+        return 0;
     }
 
+    public void moveDownComputer(){
+        int positionAdjustment = calculatePosition(model.getBall());
+        if (model.isEmpty(new Position(model.getComputer().get(0).getPosition().getX(),
+                model.getComputer().get(model.getComputer().size() - 1).getPosition().getY() + positionAdjustment), 1)) {
+
+            for (Computer computer : model.getComputer()) {
+                computer.setPosition(new Position(computer.getPosition().getX(), computer.getPosition().getY() + positionAdjustment));
+            }
+        }
+    }
+
+    public void moveUpComputer(){
+        int positionAdjustment = calculatePosition(model.getBall());
+        if (model.isEmpty(new Position(model.getComputer().get(0).getPosition().getX(),
+                model.getComputer().get(0).getPosition().getY() + positionAdjustment), 1)) {
+
+            for (Computer computer : model.getComputer()) {
+                computer.setPosition(new Position(computer.getPosition().getX(), computer.getPosition().getY() + positionAdjustment));
+            }
+        }
+    }
+
+    public void moveComputer() {
+        if(calculatePosition(model.getBall())==-1)moveUpComputer();
+        else moveDownComputer();
+    }
+
+
     @Override
-    public void step(Application app, GUI.ACTION action, long time) throws IOException {
-        if(time-this.lastMovement>50) {
+    public void step(Application app, GUI.ACTION action, long time){
+        if(time-this.lastMovement>100) {
             moveComputer();
             this.lastMovement=time;
         }
