@@ -25,13 +25,13 @@ public class BallController extends Controller {
         if(model.getBall().getPosition().getX()==0 || model.getBall().getPosition().getX()==model.getWidth()-1){
             model.setBall(model.getWidth()/2,model.getHeight()/2);
         }else{
-            if (model.isEmpty(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY()),0)) {
-                model.setBall(new Ball(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY(), model.getBall().getVector()));
+            if (model.isEmpty(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY()),0,"ball")) {
+                model.setBall(new Ball(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY(), model.getBall().getVector(),model.getBall().getSize(),model.getBall().getSpeed()));
             } else {
                 if (model.isPlayer(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY()))) {
-                    model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(1)));
+                    model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(1),model.getBall().getSize(),model.getBall().getSpeed()));
                 } else if (model.isWall(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY()))) {
-                    model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(0)));
+                    model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(0),model.getBall().getSize(),model.getBall().getSpeed()));
                 }
             }
         }

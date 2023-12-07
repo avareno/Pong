@@ -1,7 +1,9 @@
 package com.mlg.pong.gui;
 
 import com.mlg.pong.model.Position;
+import com.mlg.pong.model.game.elements.Player;
 
+import java.awt.*;
 import java.io.IOException;
 
 public interface GUI {
@@ -16,7 +18,7 @@ public interface GUI {
 
     void close() throws IOException;
 
-    void drawPlayer(Position position);
+    void drawPlayer(Player player);
     void drawComputer(Position position);
 
     void drawBall(Position position);

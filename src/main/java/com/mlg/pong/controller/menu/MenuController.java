@@ -27,7 +27,7 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedExit()) app.setState(null);
-                if (getModel().isSelectedClassicGame()) app.setState(new ClassicGameState(new ClassicGameBuilder().createClassicGame()));
+                if (getModel().isSelectedClassicGame()) app.setState(new ClassicGameState(new ClassicGameBuilder(app).createClassicGame()));
         }
     }
 }

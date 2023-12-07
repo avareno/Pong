@@ -2,6 +2,7 @@ package com.mlg.pong;
 
 import com.mlg.pong.controller.game.ClassicGameController;
 import com.mlg.pong.gui.LanternaGUI;
+import com.mlg.pong.model.game.arena.ClassicGameBuilder;
 import com.mlg.pong.model.menu.Menu;
 import com.mlg.pong.states.ClassicGameState;
 import com.mlg.pong.states.MenuState;
@@ -14,9 +15,10 @@ import java.net.URISyntaxException;
 public class Application {
     private final LanternaGUI gui;
     private State state;
-
+    int height = 30,width=70;
     public Application() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new LanternaGUI(70, 30);
+
+        this.gui = new LanternaGUI(width, height);
         this.state = new MenuState(new Menu());
     }
 
@@ -48,4 +50,22 @@ public class Application {
 
         gui.close();
     }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+
 }
