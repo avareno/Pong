@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class BallController extends Controller {
     private ClassicGame model = (ClassicGame) getModel();
     private long lastMovement;
+    private int count =0;
     public BallController(ClassicGame cgame){
         super(cgame);
         this.lastMovement=0;
@@ -35,14 +36,26 @@ public class BallController extends Controller {
                 }
             }
         }
-
     }
+
+
 
     @Override
     public void step(Application app, GUI.ACTION action, long time) {
-        if(time-lastMovement>100){
-            moveBall();
-            lastMovement=time;
+          if(count<2) {
+              if (time - lastMovement > 100) {
+                  moveBall();
+                  lastMovement = time;
+              }
+          }else{
+              if (time - lastMovement > 0.0005) {
+                  moveBall();
+                  lastMovement = time;
+              }
+          }
+
+        if(model.getBall().getPosition().getX()==(model.getComputer().get(0).getPosition().getX()-1)){
+            count++;
         }
     }
 }
