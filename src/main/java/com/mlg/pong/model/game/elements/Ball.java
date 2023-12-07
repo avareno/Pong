@@ -4,15 +4,15 @@ import com.mlg.pong.model.Position;
 
 public class Ball extends Element{
     private Vector vector;
-    public Ball(int x , int y)
+    public Ball(int x , int y,int size, int speed)
     {
-        super(x,y);
+        super(x,y,size,speed);
         this.vector=new Vector();
     }
 
-    public Ball(int x , int y, Vector v)
+    public Ball(int x , int y, Vector v,int size, int speed)
     {
-        super(x,y);
+        super(x,y,size,speed);
         this.vector=v;
     }
 

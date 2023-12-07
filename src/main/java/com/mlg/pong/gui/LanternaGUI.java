@@ -1,5 +1,6 @@
 package com.mlg.pong.gui;
 
+import com.googlecode.lanterna.TerminalPosition;
 import com.mlg.pong.model.Position;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -11,6 +12,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.mlg.pong.model.game.elements.Player;
 
 import java.awt.*;
 import java.io.File;
@@ -91,17 +93,22 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawWall(Position position) {
+
         drawCharacter(position.getX(), position.getY(), '█', "#ffffff");
     }
 
     @Override
-    public void drawPlayer(Position position) {
-        drawCharacter(position.getX(), position.getY(), '█', "#FFD700");
+    public void drawPlayer(Player player) {
+
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString("#FFD700"));
+        tg.drawRectangle(new TerminalPosition(player.getPosition().getX(), player.getPosition().getY()),new TerminalSize(1, player.getSize()), '█');
     }
 
     @Override
     public void drawComputer(Position position) {
-        drawCharacter(position.getX(), position.getY(), '█', "#FFD700");
+
+        //drawCharacter(position.getX(), position.getY(), '█', "#FFD700");
     }
 
     @Override

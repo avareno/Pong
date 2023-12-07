@@ -1,5 +1,7 @@
 package com.mlg.pong.model.game.arena;
 
+import com.googlecode.lanterna.screen.Screen;
+import com.mlg.pong.Application;
 import com.mlg.pong.model.game.elements.Computer;
 import com.mlg.pong.model.game.elements.Player;
 import com.mlg.pong.model.game.elements.Walls;
@@ -10,13 +12,20 @@ import java.util.List;
 
 public class ClassicGameBuilder {
 
-    int height = 30,width=70;
+    public ClassicGameBuilder(Application app) {
+        //int value = (int) (app.getWidth() / 5.83);
+        this.width = app.getWidth() - 12;
+        this.height = app.getHeight();
+    }
+
+    int height ,width;
 
     protected Ball createBall(){
-        return new Ball(width/2,height/2);
+        return new Ball(width/2,height/2,0,0);
     }
     protected List<Walls> createWalls(){
         List<Walls> walls = new ArrayList<>();
+
         for (int c = 0; c < width; c++) {
             walls.add(new Walls(c, 0));
             walls.add(new Walls(c, height - 1));
@@ -24,27 +33,21 @@ public class ClassicGameBuilder {
         return walls;
     }
 
-    protected List<Computer> createComputer(){
-        List<Computer> computer = new ArrayList<>();
-        for (int r = (height/2)-5; r<(height/2)+1;r++) {
-            computer.add(new Computer(width-1, r));
-        }
+    protected Computer createComputer(){
+        Computer computer = null;
+
+            computer = new Computer(width-1, (height/2)-5,6,1);
+
         return computer;
     }
 
-    protected List<Player> createPlayers(int i){
-        List<Player> players = new ArrayList<>();
-        if(i==1){
-            for (int r = (height/2)-5; r<(height/2)+1;r++) {
-                players.add(new Player(0, r));
-            }
-        }
-        else if(i==2){
-            for (int r = (height/2)-5; r<(height/2)+1;r++) {
-                players.add(new Player(width-1, r));
-            }
-        }
-        return players;
+    protected Player createPlayers(){
+        Player player = null;
+
+        player = new Player(0, (height/2)-5,6,1);
+
+
+        return player;
     }
 
     public int getWidth() {
@@ -66,7 +69,7 @@ public class ClassicGameBuilder {
 
     public ClassicGame createClassicGame() {
             ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
-            cgame.setPlayer1(createPlayers(1));
+            cgame.setPlayer1(createPlayers());
             cgame.setComputer(createComputer());
             cgame.setWalls(createWalls());
             cgame.setBall(createBall());
