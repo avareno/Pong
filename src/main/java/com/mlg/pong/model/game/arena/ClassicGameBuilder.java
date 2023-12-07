@@ -36,7 +36,7 @@ public class ClassicGameBuilder {
     protected Computer createComputer(){
         Computer computer = null;
 
-            computer = new Computer(width-1, (height/2)-5,5,1);
+            computer = new Computer(width-1, (height/2)-5,6,1);
 
         return computer;
     }
@@ -44,7 +44,7 @@ public class ClassicGameBuilder {
     protected Player createPlayers(){
         Player player = null;
 
-        player = new Player(0, (height/2)-5,5,4);
+        player = new Player(0, (height/2)-5,6,1);
 
 
         return player;
