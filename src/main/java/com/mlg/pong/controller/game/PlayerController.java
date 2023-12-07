@@ -15,19 +15,29 @@ public class PlayerController extends Controller {
 
 
     public void movePlayerUp() {
+        int speed = model.getPlayer1().getSpeed();
 
-        movePlayer(model.getPlayer1().get(0).getPosition(),-1);
+        if((model.getPlayer1().getPosition().getY() - model.getPlayer1().getSpeed()) <= 1) speed = (- (model.getPlayer1().getPosition().getY()) + 2) * -1;
+
+        if(speed < 0) speed  =0;
+
+        movePlayer(model.getPlayer1(),-speed);
     }
 
     public void movePlayerDown() {
-        movePlayer(model.getPlayer1().get(model.getPlayer1().size()-1).getPosition(),1);
+        int speed = model.getPlayer1().getSpeed();
+
+        if((model.getHeight()-(model.getPlayer1().getPosition().getY() + model.getPlayer1().getSize() + model.getPlayer1().getSpeed())) <= 0) speed = (model.getHeight() - (model.getPlayer1().getPosition().getY() + model.getPlayer1().getSize())) ;
+
+        if(speed < 0) speed  =0;
+        movePlayer(model.getPlayer1(),speed);
     }
 
-    public void movePlayer(Position position, int i) {
-        if (model.isEmpty(new Position(position.getX(),position.getY()+i),0)) {
-            for(Player at: model.getPlayer1()){
+    public void movePlayer(Player player, int i) {
+        if (model.isEmpty(new Position(player.getPosition().getX(),player.getPosition().getY()+i),0,"player")) {
+            Player at = model.getPlayer1();
                 at.setPosition(new Position(at.getPosition().getX(),at.getPosition().getY()+i));
-            }
+
         }
     }
 

@@ -4,6 +4,8 @@ public class Position {
     private int x;
     private int y;
 
+    private int size;
+
     public Position() {
         this.x = 10;
         this.y = 10;
@@ -30,7 +32,13 @@ public class Position {
     }
 
 
+    public int getSize() {
+        return this.size;
+    }
 
+    public void setSize(int size) {
+        this.size = size;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

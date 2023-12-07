@@ -30,9 +30,9 @@ public class ComputerController extends Controller {
                 res += ball.getVector().getP().getX();
                 res1 += ball.getVector().getP().getY();
             }
-            if (res1 < model.getComputer().get(0).getPosition().getY() || res1 <= 0) {
+            if (res1 < model.getComputer().getPosition().getY() || res1 <= 0) {
                 return -1;
-            } else if(res1 > model.getComputer().get(model.getComputer().size()-1).getPosition().getY()){
+            } else if(res1 > model.getComputer().getPosition().getY()){
                 return 1;
             }
         }
@@ -41,22 +41,22 @@ public class ComputerController extends Controller {
 
     public void moveDownComputer(){
         int positionAdjustment = calculatePosition(model.getBall());
-        if (model.isEmpty(new Position(model.getComputer().get(0).getPosition().getX(),
-                model.getComputer().get(model.getComputer().size() - 1).getPosition().getY() + positionAdjustment), 1)) {
+        if (model.isEmpty(new Position(model.getComputer().getPosition().getX(),
+                model.getComputer().getPosition().getY() + positionAdjustment), 1,"computer")) {
 
-            for (Computer computer : model.getComputer()) {
+            Computer computer = model.getComputer();
                 computer.setPosition(new Position(computer.getPosition().getX(), computer.getPosition().getY() + positionAdjustment));
-            }
+
         }
     }
     public void moveUpComputer(){
         int positionAdjustment = calculatePosition(model.getBall());
-        if (model.isEmpty(new Position(model.getComputer().get(0).getPosition().getX(),
-                model.getComputer().get(0).getPosition().getY() + positionAdjustment), 1)) {
+        if (model.isEmpty(new Position(model.getComputer().getPosition().getX(),
+                model.getComputer().getPosition().getY() + positionAdjustment), 1,"computer")) {
 
-            for (Computer computer : model.getComputer()) {
-                computer.setPosition(new Position(computer.getPosition().getX(), computer.getPosition().getY() + positionAdjustment));
-            }
+            Computer computer = model.getComputer();
+            computer.setPosition(new Position(computer.getPosition().getX(), computer.getPosition().getY() + positionAdjustment));
+
         }
     }
     public void moveComputer() {
@@ -76,7 +76,7 @@ public class ComputerController extends Controller {
                 lastMovement = time;
             }
         }
-        if(model.getBall().getPosition().getX()==(model.getComputer().get(0).getPosition().getX()-1)){
+        if(model.getBall().getPosition().getX()==(model.getComputer().getPosition().getX()-1)){
             count++;
         }
     }

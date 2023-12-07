@@ -3,10 +3,8 @@ package com.mlg.pong.model.game.elements;
 
 public class Player extends Element {
 
-    public Player(int x , int y)
+    public Player(int x , int y,int size,int speed)
     {
-        super(x,y);
+        super(x,y,size,speed);
     }
-
-
 }
