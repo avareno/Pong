@@ -6,8 +6,8 @@ import com.mlg.pong.model.Position;
 import com.mlg.pong.model.menu.ClassicGameMenu;
 import com.mlg.pong.viewer.Viewer;
 
-public class ClassicGameViewer extends Viewer<ClassicGameMenu> {
-    public ClassicGameViewer(ClassicGameMenu menu) {
+public class ClassicGameMenuViewer extends Viewer<ClassicGameMenu> {
+    public ClassicGameMenuViewer(ClassicGameMenu menu) {
         super(menu);
     }
 

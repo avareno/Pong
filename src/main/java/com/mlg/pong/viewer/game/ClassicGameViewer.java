@@ -26,6 +26,9 @@ public class    ClassicGameViewer extends Viewer<ClassicGame> {
         drawElement(gui,getModel().getPlayer1(), new PlayerViewer());
         drawElement(gui,getModel().getComputer(), new ComputerViewer());
         drawElement(gui, getModel().getBall(), new BallViewer());
+        if (!getModel().getPowerup().isConsumed()) {
+            drawElement(gui,getModel().getPowerup(), new PowerUpViewer());
+        }
     }
 
     private void drawElement(GUI gui, List<Computer> player2, ComputerViewer computerViewer) {

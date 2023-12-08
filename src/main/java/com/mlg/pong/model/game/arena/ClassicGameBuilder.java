@@ -2,10 +2,7 @@ package com.mlg.pong.model.game.arena;
 
 import com.googlecode.lanterna.screen.Screen;
 import com.mlg.pong.Application;
-import com.mlg.pong.model.game.elements.Computer;
-import com.mlg.pong.model.game.elements.Player;
-import com.mlg.pong.model.game.elements.Walls;
-import com.mlg.pong.model.game.elements.Ball;
+import com.mlg.pong.model.game.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +47,12 @@ public class ClassicGameBuilder {
         return player;
     }
 
+    protected PowerUP createPowerUP(){
+        PowerUP powerup = new PowerUP(1,1,0,0);
+        powerup.Consume();
+        return powerup;
+    }
+
     public int getWidth() {
         return width;
     }
@@ -73,8 +76,10 @@ public class ClassicGameBuilder {
             cgame.setComputer(createComputer());
             cgame.setWalls(createWalls());
             cgame.setBall(createBall());
+            cgame.setPowerUP(createPowerUP());
             cgame.setPoint1(0);
             cgame.setPoints2(0);
+
 
             return cgame;
     }

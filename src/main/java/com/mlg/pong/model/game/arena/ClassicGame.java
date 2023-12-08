@@ -1,10 +1,7 @@
 package com.mlg.pong.model.game.arena;
 
 import com.mlg.pong.model.Position;
-import com.mlg.pong.model.game.elements.Ball;
-import com.mlg.pong.model.game.elements.Computer;
-import com.mlg.pong.model.game.elements.Player;
-import com.mlg.pong.model.game.elements.Walls;
+import com.mlg.pong.model.game.elements.*;
 
 import java.util.List;
 
@@ -13,6 +10,7 @@ public class ClassicGame {
     private Player player1;
     private Computer computer;
     private Ball ball;
+    private PowerUP powerup;
     private int width,height;
 
     private int point1, points2;
@@ -25,7 +23,6 @@ public class ClassicGame {
         this.points2 = points2;
     }
 
-
     public void setPoint1(int point1) {
         this.point1 = point1;
     }
@@ -37,6 +34,10 @@ public class ClassicGame {
     public void setBall(Ball ball) {
         this.ball = ball;
     }
+
+    public void setPowerUP(PowerUP powerup) {this.powerup = powerup;}
+
+    public PowerUP getPowerup() {return powerup;}
 
     public Computer getComputer() {
         return computer;
@@ -99,7 +100,7 @@ public class ClassicGame {
 
     public boolean isPlayer(Position position){
         Player player = player1;
-        for (int c = player.getPosition().getY(); c <= player.getPosition().getY() + player.getSize(); c++) {
+        for (int c = player.getPosition().getY(); c < player.getPosition().getY() + player.getSize(); c++) {
             if (position.equals(new Position(player.getPosition().getX(), c))) {
                 return true;
             }
@@ -107,12 +108,16 @@ public class ClassicGame {
 
 
         Computer p= computer;
-        for (int c = p.getPosition().getY(); c <= p.getPosition().getY() + p.getSize(); c++) {
+        for (int c = p.getPosition().getY(); c < p.getPosition().getY() + p.getSize(); c++) {
             if (position.equals(new Position(p.getPosition().getX(), c))) {
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean isPowerUP(Position position) {
+        return position.equals(powerup.getPosition());
     }
 
     public int getHeight() {

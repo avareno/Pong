@@ -19,7 +19,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
@@ -85,6 +84,11 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
 
+        if (keyStroke.getCharacter() == 'w') return ACTION.P2UP;
+        if (keyStroke.getCharacter() == 'd') return ACTION.P2RIGHT;
+        if (keyStroke.getCharacter() == 's') return ACTION.P2DOWN;
+        if (keyStroke.getCharacter() == 'a') return ACTION.P2LEFT;
+
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
 
         return ACTION.NONE;
@@ -99,22 +103,20 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawPlayer(Player player) {
-
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString("#FFD700"));
-        tg.drawRectangle(new TerminalPosition(player.getPosition().getX(), player.getPosition().getY()),new TerminalSize(1, player.getSize()), '█');
-    }
-
-    @Override
-    public void drawComputer(Position position) {
-
-        //drawCharacter(position.getX(), position.getY(), '█', "#FFD700");
-    }
+            for (int i = player.getPosition().getY(); i < player.getPosition().getY() + player.getSize();i++)
+            {drawCharacter(player.getPosition().getX(),i,'█', "#FFD700");}
+        }
 
     @Override
     public void drawBall(Position position){
-        drawCharacter(position.getX(), position.getY(), '█', "#aa0000");
+        drawCharacter(position.getX(), position.getY(), 'O', "#aa0000");
     }
+
+    @Override
+    public void drawPowerUp(Position position){
+        drawCharacter(position.getX(), position.getY(), '█', "#00fc00");
+    }
+
 
     @Override
     public void drawText(Position position, String text, String color) {

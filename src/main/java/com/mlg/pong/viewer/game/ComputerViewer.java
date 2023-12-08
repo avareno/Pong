@@ -8,6 +8,6 @@ import java.awt.*;
 public class ComputerViewer implements ElementViewer<Computer>{
     @Override
     public void draw(Computer computer, GUI gui) {
-        gui.drawPlayer(computer );
+        gui.drawPlayer(computer);
     }
 }

@@ -1,13 +1,13 @@
 package com.mlg.pong.states;
 
 import com.mlg.pong.controller.Controller;
-import com.mlg.pong.controller.game.ClassicGameController;
+import com.mlg.pong.controller.game.ClassicGame2PController;
 import com.mlg.pong.model.game.arena.ClassicGame;
 import com.mlg.pong.viewer.Viewer;
 import com.mlg.pong.viewer.game.ClassicGameViewer;
 
-public class ClassicGameState extends State{
-    public ClassicGameState(ClassicGame cgame) {
+public class ClassicGame2PState extends State{
+    public ClassicGame2PState(ClassicGame cgame) {
         super(cgame);
     }
 
@@ -18,6 +18,6 @@ public class ClassicGameState extends State{
 
     @Override//make controller
     protected Controller<ClassicGame> getController() {
-        return new ClassicGameController((ClassicGame) getModel());
+        return new ClassicGame2PController((ClassicGame) getModel());
     }
 }

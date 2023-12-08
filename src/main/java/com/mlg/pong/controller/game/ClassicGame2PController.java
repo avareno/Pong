@@ -9,20 +9,19 @@ import com.mlg.pong.states.MenuState;
 
 import java.io.IOException;
 
-public class ClassicGameController extends Controller {
+public class ClassicGame2PController extends Controller {
     private final PlayerController playerController;
     private final BallController ballController;
-    private final ComputerController computerController;
+    private final Player2Controller player2Controller;
     private final PowerUpController powerUpController;
 
-    public ClassicGameController(ClassicGame cgame) {
+    public ClassicGame2PController(ClassicGame cgame) {
         super(cgame);
 
         this.playerController = new PlayerController(cgame);
+        this.player2Controller= new Player2Controller(cgame);
         this.ballController = new BallController(cgame);
-        this.computerController= new ComputerController(cgame);
         this.powerUpController = new PowerUpController(cgame);
-
     }
 
     public void step(Application app, GUI.ACTION action, long time) throws IOException {
@@ -31,7 +30,7 @@ public class ClassicGameController extends Controller {
         else {
             playerController.step(app, action, time);
             ballController.step(app,action,time);
-            computerController.step(app,action,time);
+            player2Controller.step(app,action,time);
             powerUpController.step(app,action,time);
         }
     }

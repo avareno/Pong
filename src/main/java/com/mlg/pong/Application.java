@@ -1,10 +1,7 @@
 package com.mlg.pong;
 
-import com.mlg.pong.controller.game.ClassicGameController;
 import com.mlg.pong.gui.LanternaGUI;
-import com.mlg.pong.model.game.arena.ClassicGameBuilder;
 import com.mlg.pong.model.menu.Menu;
-import com.mlg.pong.states.ClassicGameState;
 import com.mlg.pong.states.MenuState;
 import com.mlg.pong.states.State;
 

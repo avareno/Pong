@@ -10,6 +10,9 @@ public interface GUI {
     ACTION getNextAction() throws IOException;
 
     void drawWall(Position position);
+
+    void drawPowerUp(Position position);
+
     void drawText(Position position, String text, String color);
 
     void clear();
@@ -19,9 +22,8 @@ public interface GUI {
     void close() throws IOException;
 
     void drawPlayer(Player player);
-    void drawComputer(Position position);
 
     void drawBall(Position position);
 
-    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
+    enum ACTION {UP, RIGHT, DOWN, LEFT, P2UP, P2RIGHT, P2DOWN, P2LEFT, NONE, QUIT, SELECT}
 }

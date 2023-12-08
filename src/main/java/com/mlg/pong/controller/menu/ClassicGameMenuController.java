@@ -7,6 +7,7 @@ import com.mlg.pong.model.game.arena.ClassicGameBuilder;
 import com.mlg.pong.model.menu.ClassicGameMenu;
 import com.mlg.pong.model.menu.Menu;
 import com.mlg.pong.model.menu.OtherMenu;
+import com.mlg.pong.states.ClassicGame2PState;
 import com.mlg.pong.states.ClassicGameState;
 import com.mlg.pong.states.MenuState;
 
@@ -27,7 +28,7 @@ public class ClassicGameMenuController extends Controller<ClassicGameMenu> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if (getModel().isSelected(0)) app.setState(new ClassicGameState(new ClassicGameBuilder().createClassicGame()));
+                if (getModel().isSelected(0)) app.setState(new ClassicGame2PState(new ClassicGameBuilder().createClassicGame()));
                 if (getModel().isSelected(1)) app.setState(new ClassicGameState(new ClassicGameBuilder().createClassicGame()));
 
         }
