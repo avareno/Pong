@@ -1,21 +1,17 @@
 package com.mlg.pong.controller.menu;
-
 import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
-//import com.aor.hero.model.game.arena.LoaderArenaBuilder;
 import com.mlg.pong.model.game.arena.ClassicGameBuilder;
 import com.mlg.pong.model.menu.Menu;
 import com.mlg.pong.model.menu.OtherMenu;
 import com.mlg.pong.states.ClassicGameState;
 import com.mlg.pong.states.MenuState;
-import com.mlg.pong.states.OtherMenuState;
-//import com.aor.hero.states.GameState;
 
 import java.io.IOException;
 
-public class MenuController extends Controller<Menu> {
-    public MenuController(Menu menu) {
+public class OtherMenuController extends Controller<OtherMenu> {
+    public OtherMenuController(OtherMenu menu) {
         super(menu);
     }
 
@@ -29,9 +25,7 @@ public class MenuController extends Controller<Menu> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if (getModel().isSelectedExit()) app.setState(null);
-                if (getModel().isSelectedOtherGame()) app.setState(new OtherMenuState(new OtherMenu()));
-                if (getModel().isSelectedClassicGame()) app.setState(new ClassicGameState(new ClassicGameBuilder().createClassicGame()));
+                if (getModel().isSelected(3)) app.setState(new MenuState(new Menu()));
         }
     }
 }

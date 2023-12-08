@@ -12,10 +12,10 @@ import java.util.List;
 
 public class ClassicGameBuilder {
 
-    public ClassicGameBuilder(Application app) {
+    public ClassicGameBuilder() {
         //int value = (int) (app.getWidth() / 5.83);
-        this.width = app.getWidth() - 12;
-        this.height = app.getHeight();
+        this.width = 58;     // Esta parte estava a dar conflitos com o MenuController
+        this.height = 30;    // e não tenho a certeza qual seria a diferença entre usar os valores
     }
 
     int height ,width;
