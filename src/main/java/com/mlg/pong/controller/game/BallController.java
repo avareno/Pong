@@ -44,6 +44,7 @@ public class BallController extends Controller {
 
 
 
+
     @Override
     public void step(Application app, GUI.ACTION action, long time) {
         if(count<2) {

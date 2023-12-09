@@ -1,18 +1,13 @@
 package com.mlg.pong.model.game.arena;
-
-import com.googlecode.lanterna.screen.Screen;
-import com.mlg.pong.Application;
 import com.mlg.pong.model.game.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClassicGameBuilder {
-
     public ClassicGameBuilder() {
-        //int value = (int) (app.getWidth() / 5.83);
-        this.width = 58;     // Esta parte estava a dar conflitos com o MenuController
-        this.height = 30;    // e não tenho a certeza qual seria a diferença entre usar os valores
+        this.width = 58;
+        this.height = 30;
     }
 
     int height ,width;
@@ -31,20 +26,11 @@ public class ClassicGameBuilder {
     }
 
     protected Computer createComputer(){
-        Computer computer = null;
-
-            computer = new Computer(width-1, (height/2)-5,6,1);
-
-        return computer;
+        return new Computer(width-1, (height/2)-5,6,1);
     }
 
     protected Player createPlayers(){
-        Player player = null;
-
-        player = new Player(0, (height/2)-5,6,1);
-
-
-        return player;
+        return new Player(0, (height/2)-5,6,1);;
     }
 
     public int getWidth() {
