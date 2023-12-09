@@ -84,8 +84,12 @@ public class ClassicGame {
         for(Position p: getPlayer1().getPlayersPositions()){
             if(p.equals(position) || ball.getPosition().equals(position))return false;
         }
+
         if(i==0) {
             for (Position p : getPlayer2().getPlayersPositions()) {// erro ele nao altera a posiçao do computador apenas a muda visualmente porque a condiçao com o player e verdade
+                if (p.equals(position)) return false;
+            }
+            for (Position p : getComputer().getPlayersPositions()) {// erro ele nao altera a posiçao do computador apenas a muda visualmente porque a condiçao com o player e verdade
                 if (p.equals(position)) return false;
             }
         }
@@ -96,6 +100,14 @@ public class ClassicGame {
 
     public boolean isPlayer(Position position){
         for( Position p : getPlayer1().getPlayersPositions())
+            if(p.equals(position))return true;
+        for( Position p : getPlayer2().getPlayersPositions())
+            if(p.equals(position))return true;
+        return false;
+    }
+
+    public boolean isComputer(Position position){
+        for( Position p : getComputer().getPlayersPositions())
             if(p.equals(position))return true;
         return false;
     }
