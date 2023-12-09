@@ -89,7 +89,7 @@ public class ClassicGame {
             for (Position p : getPlayer2().getPlayersPositions()) {// erro ele nao altera a posiçao do computador apenas a muda visualmente porque a condiçao com o player e verdade
                 if (p.equals(position)) return false;
             }
-            for (Position p : getComputer().getPlayersPositions()) {// erro ele nao altera a posiçao do computador apenas a muda visualmente porque a condiçao com o player e verdade
+            for (Position p : getComputer().getPlayersPositions()) {//temos que fazer os dois loops porque como usamos o classic game para ambos o jogo nao sabe se e um player ou um computador entao tem que verificar os dois desnecessariamente
                 if (p.equals(position)) return false;
             }
         }
