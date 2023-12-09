@@ -30,7 +30,7 @@ public class ClassicGameBuilder {
     }
 
     protected Player createPlayers(){
-        return new Player(0, (height/2)-5,6,1);;
+        return new Player(0, (height/2)-5,6,1);
     }
 
     public int getWidth() {
