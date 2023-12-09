@@ -12,20 +12,27 @@ public class ClassicGame {
     private Ball ball;
     private PowerUP powerup;
     private int width,height;
-
-    private int point1, points2;
-
-    public int getPoints2() {
-        return points2;
-    }
+    private int points1, points2;
 
     public void setPoints2(int points2) {
         this.points2 = points2;
     }
 
-    public void setPoint1(int point1) {
-        this.point1 = point1;
+    public void setPoint1(int points1) {
+        this.points1 = points1;
     }
+
+    public int getPoints1() {
+        return points1;
+    }
+
+    public int getPoints2() {
+        return points2;
+    }
+
+    public void addPoints1() {points1++;}
+
+    public void addPoints2() {points2++;}
 
     public Ball getBall() {
         return ball;
@@ -116,10 +123,6 @@ public class ClassicGame {
         return false;
     }
 
-    public boolean isPowerUP(Position position) {
-        return position.equals(powerup.getPosition());
-    }
-
     public int getHeight() {
         return height;
     }
@@ -147,7 +150,6 @@ public class ClassicGame {
         this.width=width;
         this.height=height;
     }
-
 
     public void setBall(int i, int i1) {
         ball = new Ball(i,i1,0,0);

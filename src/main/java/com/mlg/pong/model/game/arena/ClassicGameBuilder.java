@@ -47,12 +47,6 @@ public class ClassicGameBuilder {
         return player;
     }
 
-    protected PowerUP createPowerUP(){
-        PowerUP powerup = new PowerUP(1,1,0,0);
-        powerup.Consume();
-        return powerup;
-    }
-
     public int getWidth() {
         return width;
     }
@@ -76,10 +70,8 @@ public class ClassicGameBuilder {
             cgame.setComputer(createComputer());
             cgame.setWalls(createWalls());
             cgame.setBall(createBall());
-            cgame.setPowerUP(createPowerUP());
             cgame.setPoint1(0);
             cgame.setPoints2(0);
-
 
             return cgame;
     }
