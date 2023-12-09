@@ -1,7 +1,4 @@
 package com.mlg.pong.model.game.arena;
-
-import com.googlecode.lanterna.screen.Screen;
-import com.mlg.pong.Application;
 import com.mlg.pong.model.game.elements.*;
 
 import java.util.ArrayList;
@@ -31,11 +28,8 @@ public class ClassicGameBuilder {
     }
 
     protected Computer createComputer(){
-        Computer computer = null;
 
-            computer = new Computer(width-1, (height/2)-5,6,1);
-
-        return computer;
+        return new Computer(width-1, (height/2)-5,6,1);
     }
 
     protected Player createPlayers(){
