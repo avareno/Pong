@@ -8,22 +8,20 @@ import com.mlg.pong.viewer.Viewer;
 
 import java.util.List;
 
-public class    ClassicGameViewer extends Viewer<ClassicGame> {
-
-    public ClassicGameViewer(ClassicGame cgame) {
-        super(cgame);
+public class ClassicGame2PViewer extends Viewer<ClassicGame> {
+    public ClassicGame2PViewer(ClassicGame model) {
+        super(model);
     }
 
     @Override
     public ClassicGame getModel() {
         return super.getModel();
     }
-
     @Override
     public void drawElements(GUI gui) {
         drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElement(gui,getModel().getPlayer1(), new PlayerViewer());
-        drawElement(gui,getModel().getComputer(), new ComputerViewer());
+        drawElement(gui,getModel().getPlayer2(), new PlayerViewer());
         drawElement(gui, getModel().getBall(), new BallViewer());
         gui.drawText(new Position(getModel().getWidth()/2,2), Integer.toString(getModel().getPoints1()) + "-" + Integer.toString(getModel().getPoints2()),"#FFFFFF");
         if(getModel().getPowerup() != null) {

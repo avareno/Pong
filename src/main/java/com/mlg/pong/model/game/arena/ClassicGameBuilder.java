@@ -6,14 +6,14 @@ import java.util.List;
 
 public class ClassicGameBuilder {
     public ClassicGameBuilder() {
-        this.width = 58;
+        this.width = 70;
         this.height = 30;
     }
 
     int height ,width;
 
     protected Ball createBall(){
-        return new Ball(width/2,height/2,0,0);
+        return new Ball(width/2,height/2);
     }
     protected List<Walls> createWalls(){
         List<Walls> walls = new ArrayList<>();
@@ -26,11 +26,13 @@ public class ClassicGameBuilder {
     }
 
     protected Computer createComputer(){
-        return new Computer(width-1, (height/2)-5,6,1);
+        return new Computer(width-1, (height/2));
     }
 
-    protected Player createPlayers(){
-        return new Player(0, (height/2)-5,6,1);
+    protected Player createPlayers(int i){
+        if(i==0)return new Player(1, (height / 2));
+        else return new Player(width-2,(height / 2));
+
     }
 
     public int getWidth() {
@@ -52,13 +54,13 @@ public class ClassicGameBuilder {
 
     public ClassicGame createClassicGame() {
             ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
-            cgame.setPlayer1(createPlayers());
+            cgame.setPlayer1(createPlayers(0));
+            cgame.setPlayer2(createPlayers(1));
             cgame.setComputer(createComputer());
             cgame.setWalls(createWalls());
             cgame.setBall(createBall());
             cgame.setPoint1(0);
             cgame.setPoints2(0);
-
             return cgame;
     }
 

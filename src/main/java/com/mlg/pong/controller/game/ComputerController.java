@@ -41,8 +41,7 @@ public class ComputerController extends Controller {
 
     public void moveDownComputer(){
         int positionAdjustment = calculatePosition(model.getBall());
-        if (model.isEmpty(new Position(model.getComputer().getPosition().getX(),
-                model.getComputer().getPosition().getY() + positionAdjustment), 1,"computer")) {
+        if (model.isEmpty(new Position(model.getComputer().getPosition().getX(),model.getComputer().getPlayersPositions().get(model.getComputer().getPlayersPositions().size()-1).getY() + positionAdjustment), 1)) {
 
             Computer computer = model.getComputer();
                 computer.setPosition(new Position(computer.getPosition().getX(), computer.getPosition().getY() + positionAdjustment));
@@ -51,8 +50,7 @@ public class ComputerController extends Controller {
     }
     public void moveUpComputer(){
         int positionAdjustment = calculatePosition(model.getBall());
-        if (model.isEmpty(new Position(model.getComputer().getPosition().getX(),
-                model.getComputer().getPosition().getY() + positionAdjustment), 1,"computer")) {
+        if (model.isEmpty(new Position(model.getComputer().getPosition().getX(),model.getComputer().getPlayersPositions().get(0).getY() + positionAdjustment), 1)) {
 
             Computer computer = model.getComputer();
             computer.setPosition(new Position(computer.getPosition().getX(), computer.getPosition().getY() + positionAdjustment));

@@ -8,6 +8,7 @@ import java.util.List;
 public class ClassicGame {
     private List<Walls> walls;
     private Player player1;
+    private Player player2;
     private Computer computer;
     private Ball ball;
     private PowerUP powerup;
@@ -61,6 +62,13 @@ public class ClassicGame {
     public void setWalls(List<Walls> walls) {
         this.walls = walls;
     }
+    public Player getPlayer2() {
+        return player2;
+    }
+    public void setPlayer2(Player player2) {
+        this.player2 = player2;
+    }
+
     public Player getPlayer1() {
         return player1;
     }
@@ -69,35 +77,16 @@ public class ClassicGame {
         this.player1 = player1;
     }
 
-    public boolean isEmpty(Position position,int i,String type) {
-
+    public boolean isEmpty(Position position, int i) {
         for (Walls wall : walls) {
-            if(type.equals("player")) {
-                Player player = getPlayer1();
-                if (wall.getPosition().equals(new Position(position.getX(), position.getY() -1)) || wall.getPosition().equals(new Position(position.getX(), position.getY() + player.getSize() - 2))) return false;
-            }else if(type.equals("computer")) {
-                Player computer = getComputer();
-                if (wall.getPosition().equals(new Position(position.getX(), position.getY() -1)) || wall.getPosition().equals(new Position(position.getX(), position.getY() + computer.getSize() - 2))) return false;
-            }else{
-                if (wall.getPosition().equals(position)) return false;
-            }
-
+            if (wall.getPosition().equals(position)) return false;
         }
-
-        if(type.equals("ball")) {
-            Player player = getPlayer1();
-            for (int c = player.getPosition().getY(); c <= player.getPosition().getY() + player.getSize(); c++) {
-                if (position.equals(new Position(player.getPosition().getX(), c))) {
-                    return false;
-                }
-            }
+        for(Position p: getPlayer1().getPlayersPositions()){
+            if(p.equals(position) || ball.getPosition().equals(position))return false;
         }
-
-
-        if(type.equals("ball")) {
-            Computer computer = getComputer();
-            for (int c = computer.getPosition().getY(); c <= computer.getPosition().getY() + computer.getSize(); c++) {
-                if (position.equals(new Position(computer.getPosition().getX(), c))) return false;
+        if(i==0) {
+            for (Position p : getPlayer2().getPlayersPositions()) {// erro ele nao altera a posiçao do computador apenas a muda visualmente porque a condiçao com o player e verdade
+                if (p.equals(position)) return false;
             }
         }
         return true;
@@ -106,20 +95,8 @@ public class ClassicGame {
 
 
     public boolean isPlayer(Position position){
-        Player player = player1;
-        for (int c = player.getPosition().getY(); c < player.getPosition().getY() + player.getSize(); c++) {
-            if (position.equals(new Position(player.getPosition().getX(), c))) {
-                return true;
-            }
-        }
-
-
-        Computer p= computer;
-        for (int c = p.getPosition().getY(); c < p.getPosition().getY() + p.getSize(); c++) {
-            if (position.equals(new Position(p.getPosition().getX(), c))) {
-                return true;
-            }
-        }
+        for( Position p : getPlayer1().getPlayersPositions())
+            if(p.equals(position))return true;
         return false;
     }
 
@@ -152,6 +129,6 @@ public class ClassicGame {
     }
 
     public void setBall(int i, int i1) {
-        ball = new Ball(i,i1,0,0);
+        ball = new Ball(i,i1);
     }
 }

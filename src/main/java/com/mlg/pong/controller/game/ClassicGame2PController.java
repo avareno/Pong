@@ -10,7 +10,7 @@ import com.mlg.pong.states.MenuState;
 import java.io.IOException;
 
 public class ClassicGame2PController extends Controller {
-    private final PlayerController playerController;
+    private final Player1Controller playerController;
     private final BallController ballController;
     private final Player2Controller player2Controller;
     private final PowerUpController powerUpController;
@@ -18,7 +18,7 @@ public class ClassicGame2PController extends Controller {
     public ClassicGame2PController(ClassicGame cgame) {
         super(cgame);
 
-        this.playerController = new PlayerController(cgame);
+        this.playerController = new Player1Controller(cgame);
         this.player2Controller= new Player2Controller(cgame);
         this.ballController = new BallController(cgame);
         this.powerUpController = new PowerUpController(cgame);
@@ -29,8 +29,8 @@ public class ClassicGame2PController extends Controller {
             app.setState(new MenuState(new Menu()));
         else {
             playerController.step(app, action, time);
-            ballController.step(app,action,time);
             player2Controller.step(app,action,time);
+            ballController.step(app,action,time);
             powerUpController.step(app,action,time);
         }
     }

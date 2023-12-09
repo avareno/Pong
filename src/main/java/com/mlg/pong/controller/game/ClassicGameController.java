@@ -10,14 +10,14 @@ import com.mlg.pong.states.MenuState;
 import java.io.IOException;
 
 public class ClassicGameController extends Controller {
-    private final PlayerController playerController;
+    private final Player1Controller playerController;
     private final BallController ballController;
     private final ComputerController computerController;
 
     public ClassicGameController(ClassicGame cgame) {
         super(cgame);
 
-        this.playerController = new PlayerController(cgame);
+        this.playerController = new Player1Controller(cgame);
         this.ballController = new BallController(cgame);
         this.computerController= new ComputerController(cgame);
     }

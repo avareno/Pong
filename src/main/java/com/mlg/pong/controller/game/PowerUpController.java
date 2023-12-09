@@ -5,8 +5,6 @@ import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.arena.ClassicGame;
-import com.mlg.pong.model.game.elements.Element;
-import com.mlg.pong.model.game.elements.Player;
 import com.mlg.pong.model.game.elements.PowerUP;
 
 import java.io.IOException;
@@ -43,7 +41,7 @@ public class PowerUpController extends Controller {
     public void step(Application app, GUI.ACTION action, long time) throws IOException {
         if (!flag) {
             if (time - last > 25000) {
-                model.setPowerUP(new PowerUP(0, generateRandY(), 0, 0));
+                model.setPowerUP(new PowerUP(0, generateRandY()));
                 flag = true;
             }
             if (time - last > 12500) {

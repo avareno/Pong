@@ -8,15 +8,14 @@ import java.util.List;
 public class SpecialGameBuilder {
 
     public SpecialGameBuilder() {
-        //int value = (int) (app.getWidth() / 5.83);
-        this.width = 58;     // Esta parte estava a dar conflitos com o MenuController
-        this.height = 30;    // e não tenho a certeza qual seria a diferença entre usar os valores
+        this.width = 70;
+        this.height = 30;
     }
 
     int height ,width;
 
     protected Ball createBall(){
-        return new Ball(width/2,height/2,0,0);
+        return new Ball(width/2,height/2);
     }
     protected List<Walls> createWalls(){
         List<Walls> walls = new ArrayList<>();
@@ -31,7 +30,7 @@ public class SpecialGameBuilder {
     protected Computer createComputer(){
         Computer computer = null;
 
-            computer = new Computer(width-1, (height/2)-5,6,1);
+            computer = new Computer(width-1, (height/2));
 
         return computer;
     }
@@ -39,14 +38,14 @@ public class SpecialGameBuilder {
     protected Player createPlayers(){
         Player player = null;
 
-        player = new Player(0, (height/2)-5,6,1);
+        player = new Player(0, (height/2));
 
 
         return player;
     }
 
     protected PowerUP createPowerUP(){
-        PowerUP powerup = new PowerUP(1,1,0,0);
+        PowerUP powerup = new PowerUP(1,1);
         powerup.Consume();
         return powerup;
     }

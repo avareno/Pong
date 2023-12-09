@@ -4,7 +4,6 @@ public class Position {
     private int x;
     private int y;
 
-    private int size;
 
     public Position() {
         this.x = 10;
@@ -32,13 +31,6 @@ public class Position {
     }
 
 
-    public int getSize() {
-        return this.size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,5 +38,19 @@ public class Position {
         if (getClass() != o.getClass()) return false;
         Position p = (Position) o;
         return x == p.getX() && y == p.getY();
+    }
+
+    public int compareTo(Position position) {
+        if (x > position.getX()) {
+            return 1;
+        } else if (x < position.getX()) {
+            return -1;
+        } else if (y > position.getY()) {
+            return 1;
+        } else if (y < position.getY()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }

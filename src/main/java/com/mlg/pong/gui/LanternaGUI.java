@@ -103,8 +103,9 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawPlayer(Player player) {
-            for (int i = player.getPosition().getY(); i < player.getPosition().getY() + player.getSize();i++)
-            {drawCharacter(player.getPosition().getX(),i,'█', "#FFD700");}
+           for(Position p: player.getPlayersPositions()){
+               drawCharacter(p.getX(),p.getY(),'█', "#FFD700");
+           }
         }
 
     @Override

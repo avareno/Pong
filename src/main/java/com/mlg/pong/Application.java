@@ -12,10 +12,9 @@ import java.net.URISyntaxException;
 public class Application {
     private final LanternaGUI gui;
     private State state;
-    int height = 30,width=70;
     public Application() throws FontFormatException, IOException, URISyntaxException {
 
-        this.gui = new LanternaGUI(width, height);
+        this.gui = new LanternaGUI(70, 30);
         this.state = new MenuState(new Menu());
     }
 
@@ -48,21 +47,6 @@ public class Application {
         gui.close();
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
 
 
 }
