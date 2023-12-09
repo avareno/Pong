@@ -26,7 +26,7 @@ public class ClassicGameBuilder {
     }
 
     protected Computer createComputer(){
-        return new Computer(width-1, (height/2));
+        return new Computer(width-2, (height/2));
     }
 
     protected Player createPlayers(int i){
