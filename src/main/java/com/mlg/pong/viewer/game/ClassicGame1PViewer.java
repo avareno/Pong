@@ -8,9 +8,9 @@ import com.mlg.pong.viewer.Viewer;
 
 import java.util.List;
 
-public class    ClassicGameViewer extends Viewer<ClassicGame> {
+public class ClassicGame1PViewer extends Viewer<ClassicGame> {
 
-    public ClassicGameViewer(ClassicGame cgame) {
+    public ClassicGame1PViewer(ClassicGame cgame) {
         super(cgame);
     }
 

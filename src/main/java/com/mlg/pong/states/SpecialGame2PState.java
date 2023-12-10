@@ -4,7 +4,7 @@ import com.mlg.pong.controller.Controller;
 import com.mlg.pong.controller.game.SpecialGame2PController;
 import com.mlg.pong.model.game.arena.ClassicGame;
 import com.mlg.pong.viewer.Viewer;
-import com.mlg.pong.viewer.game.ClassicGameViewer;
+import com.mlg.pong.viewer.game.ClassicGame1PViewer;
 
 public class SpecialGame2PState extends State{
     public SpecialGame2PState(ClassicGame cgame) {
@@ -13,7 +13,7 @@ public class SpecialGame2PState extends State{
 
     @Override
     protected Viewer<ClassicGame> getViewer() {
-        return new ClassicGameViewer((ClassicGame) getModel());
+        return new ClassicGame1PViewer((ClassicGame) getModel());
     }
 
     @Override//make controller

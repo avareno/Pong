@@ -8,7 +8,7 @@ public class OtherMenu {
     private int currentEntry = 0;
 
     public OtherMenu() {
-        this.entries = Arrays.asList("Gamemode #1", "Gamemode #2", "Gamemode #3", "Back");
+        this.entries = Arrays.asList("Special Game", "Gamemode #2", "Gamemode #3", "Back");
     }
 
     public void nextEntry() {
