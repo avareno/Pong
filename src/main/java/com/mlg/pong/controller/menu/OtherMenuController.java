@@ -3,10 +3,12 @@ import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.game.arena.SpecialGame1PBuilder;
+import com.mlg.pong.model.game.arena.SpecialGame2PBuilder;
 import com.mlg.pong.model.menu.Menu;
 import com.mlg.pong.model.menu.OtherMenu;
 import com.mlg.pong.states.MenuState;
 import com.mlg.pong.states.SpecialGame1PState;
+import com.mlg.pong.states.SpecialGame2PState;
 
 import java.io.IOException;
 
@@ -25,7 +27,8 @@ public class OtherMenuController extends Controller<OtherMenu> {
                 break;
             case SELECT:
                 if(getModel().isSelected(0)) app.setState(new SpecialGame1PState(new SpecialGame1PBuilder().createSpecialGame()));
-                if (getModel().isSelected(3)) app.setState(new MenuState(new Menu()));
+                if(getModel().isSelected(1)) app.setState(new SpecialGame2PState(new SpecialGame2PBuilder().createSpecialGame()));
+                if (getModel().isSelected(2)) app.setState(new MenuState(new Menu()));
         }
     }
 }
