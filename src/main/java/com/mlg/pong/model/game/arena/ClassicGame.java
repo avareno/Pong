@@ -86,11 +86,14 @@ public class ClassicGame {
         }
 
         if(i==0) {
-            for (Position p : getPlayer2().getPlayersPositions()) {// erro ele nao altera a posiçao do computador apenas a muda visualmente porque a condiçao com o player e verdade
-                if (p.equals(position)) return false;
-            }
-            for (Position p : getComputer().getPlayersPositions()) {//temos que fazer os dois loops porque como usamos o classic game para ambos o jogo nao sabe se e um player ou um computador entao tem que verificar os dois desnecessariamente
-                if (p.equals(position)) return false;
+            if (player2 != null) {
+                for (Position p : getPlayer2().getPlayersPositions()) { // Corrigido! :D
+                    if (p.equals(position)) return false;
+                }
+            } else {
+                for (Position p : getComputer().getPlayersPositions()) {
+                    if (p.equals(position)) return false;
+                }
             }
         }
         return true;
@@ -99,16 +102,22 @@ public class ClassicGame {
 
 
     public boolean isPlayer(Position position){
-        for( Position p : getPlayer1().getPlayersPositions())
+        for(Position p : getPlayer1().getPlayersPositions())
             if(p.equals(position))return true;
-        for( Position p : getPlayer2().getPlayersPositions())
-            if(p.equals(position))return true;
+        if (player2 != null) {
+            for (Position p : getPlayer2().getPlayersPositions()) {
+                if (p.equals(position)) return true;
+            }
+        }
         return false;
     }
 
     public boolean isComputer(Position position){
-        for( Position p : getComputer().getPlayersPositions())
-            if(p.equals(position))return true;
+        if (computer != null) {
+            for (Position p : getComputer().getPlayersPositions()) {
+                if (p.equals(position)) return true;
+            }
+        }
         return false;
     }
 

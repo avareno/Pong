@@ -8,7 +8,7 @@ public class ClassicGameMenu {
     private int currentEntry = 0;
 
     public ClassicGameMenu() {
-        this.entries = Arrays.asList("Player vs. Player","Player vs. COM");
+        this.entries = Arrays.asList("Player vs. Player","Player vs. COM","Back");
     }
 
     public void nextEntry() {

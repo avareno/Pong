@@ -4,8 +4,8 @@ import com.mlg.pong.model.game.elements.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassicGameBuilder {
-    public ClassicGameBuilder() {
+public class ClassicGame1PBuilder {
+    public ClassicGame1PBuilder() {
         this.width = 70;
         this.height = 30;
     }
@@ -29,10 +29,8 @@ public class ClassicGameBuilder {
         return new Computer(width-2, (height/2));
     }
 
-    protected Player createPlayers(int i){
-        if(i==0)return new Player(1, (height / 2));
-        else return new Player(width-2,(height / 2));
-
+    protected Player createPlayer(){
+        return new Player(1, (height / 2));
     }
 
     public int getWidth() {
@@ -51,18 +49,14 @@ public class ClassicGameBuilder {
         this.height = height;
     }
 
-
     public ClassicGame createClassicGame() {
-            ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
-            cgame.setPlayer1(createPlayers(0));
-            cgame.setPlayer2(createPlayers(1));
-            cgame.setComputer(createComputer());
-            cgame.setWalls(createWalls());
-            cgame.setBall(createBall());
-            cgame.setPoint1(0);
-            cgame.setPoints2(0);
-            return cgame;
+        ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
+        cgame.setPlayer1(createPlayer());
+        cgame.setComputer(createComputer());
+        cgame.setWalls(createWalls());
+        cgame.setBall(createBall());
+        cgame.setPoint1(0);
+        cgame.setPoints2(0);
+        return cgame;
     }
-
-
 }

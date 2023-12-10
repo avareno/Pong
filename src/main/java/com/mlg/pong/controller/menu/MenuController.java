@@ -4,13 +4,10 @@ import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
 //import com.aor.hero.model.game.arena.LoaderArenaBuilder;
-import com.mlg.pong.model.game.arena.ClassicGameBuilder;
 import com.mlg.pong.model.menu.ClassicGameMenu;
 import com.mlg.pong.model.menu.Menu;
 import com.mlg.pong.model.menu.OtherMenu;
 import com.mlg.pong.states.ClassicGameMenuState;
-import com.mlg.pong.states.ClassicGameState;
-import com.mlg.pong.states.MenuState;
 import com.mlg.pong.states.OtherMenuState;
 //import com.aor.hero.states.GameState;
 
