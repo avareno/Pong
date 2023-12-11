@@ -63,24 +63,16 @@ public abstract class Game {
         this.player1 = player1;
     }
 
-    public boolean isEmpty(Position position, int i) {
+    public boolean isEmpty(Position position){
         for (Walls wall : walls) {
             if (wall.getPosition().equals(position)) return false;
         }
         for(Position p: getPlayer1().getPlayersPositions()){
             if(p.equals(position) || ball.getPosition().equals(position))return false;
         }
-
-//        if(i==0) {
-//            if (player2 != null) {
-//                for (Position p : getPlayer2().getPlayersPositions()) {
-//                    if (p.equals(position)) return false;
-//                }
-//            }
-//            } else {
-//                for (Position p : getComputer().getPlayersPositions()) {
-//                    if (p.equals(position)) return false;
-//                }
+//        if (player2 != null) {
+//            for (Position p : getPlayer2().getPlayersPositions()) {
+//                if (p.equals(position)) return false;
 //            }
 //        }
         return true;
@@ -91,22 +83,10 @@ public abstract class Game {
     public boolean isPlayer(Position position){
         for(Position p : getPlayer1().getPlayersPositions())
             if(p.equals(position))return true;
-//        if (player2 != null) {
-//            for (Position p : getPlayer2().getPlayersPositions()) {
-//                if (p.equals(position)) return true;
-//            }
-//        }
+
         return false;
     }
 
-    public boolean isComputer(Position position){
-//        if (computer != null) {
-//            for (Position p : getComputer().getPlayersPositions()) {
-//                if (p.equals(position)) return true;
-//            }
-//        }
-        return false;
-    }
 
     public int getHeight() {
         return height;
@@ -118,10 +98,6 @@ public abstract class Game {
 
     public int getWidth() {
         return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
     }
 
     public boolean isWall(Position position){

@@ -43,12 +43,12 @@ public class PowerUpController extends Controller {
         Random random = new Random();
         while (true) {
             Position pos = new Position(0,random.nextInt(3,model.getHeight()-3));
-            if (!model.isPlayer(pos) && !model.isComputer(pos)) {return pos.getY();}
+            if (!model.isPlayer(pos) && !model.isPlayer(pos)) {return pos.getY();}
         }
     }
 
     public void checkPlayerPos() {
-        if(model.isPlayer(model.getPowerup().getPosition()) || model.isComputer(model.getPowerup().getPosition())) {
+        if(model.isPlayer(model.getPowerup().getPosition()) || model.isPlayer(model.getPowerup().getPosition())) {
             model.getPowerup().Consume();
         }
     }

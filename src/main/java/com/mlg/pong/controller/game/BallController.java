@@ -23,7 +23,7 @@ public class BallController extends Controller {
             }else{model.addPoints1();}
             model.setBall(model.getWidth()/2,model.getHeight()/2);
         }else{
-            if (model.isEmpty(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY()),0)) {
+            if (model.isEmpty(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY()))) {
                 model.setBall(new Ball(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY(), model.getBall().getVector()));
             } else {
 

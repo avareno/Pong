@@ -18,7 +18,7 @@ public class Player2Controller extends Controller {
         movePlayer(model.getPlayer2().getPlayersPositions().get(model.getPlayer2().getPlayersPositions().size()-1),1) ;
     }
     public void movePlayer(Position position, int i) {
-        if (model.isEmpty(new Position(position.getX(),position.getY()+i),1)) {
+        if (model.isEmpty(new Position(position.getX(),position.getY()+i))) {
             model.getPlayer2().setPosition(new Position(model.getPlayer2().getPosition().getX(),model.getPlayer2().getPosition().getY()+i));
         }
     }
