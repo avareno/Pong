@@ -7,9 +7,12 @@ import java.util.List;
 
 public class SpecialGame1PBuilder {
 
-    public SpecialGame1PBuilder() {
+    private int difficulty;
+
+    public SpecialGame1PBuilder(int difficulty) {
         this.width = 70;
         this.height = 30;
+        this.difficulty = difficulty;
     }
 
     int height ,width;

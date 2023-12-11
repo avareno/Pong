@@ -2,20 +2,18 @@ package com.mlg.pong.controller.menu;
 import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
+import com.mlg.pong.model.game.arena.ClassicGame1PBuilder;
 import com.mlg.pong.model.game.arena.SpecialGame1PBuilder;
 import com.mlg.pong.model.game.arena.SpecialGame2PBuilder;
 import com.mlg.pong.model.menu.DifficultySelector;
 import com.mlg.pong.model.menu.Menu;
 import com.mlg.pong.model.menu.OtherMenu;
-import com.mlg.pong.states.DifficultySelectorSpecialState;
-import com.mlg.pong.states.MenuState;
-import com.mlg.pong.states.SpecialGame1PState;
-import com.mlg.pong.states.SpecialGame2PState;
+import com.mlg.pong.states.*;
 
 import java.io.IOException;
 
-public class OtherMenuController extends Controller<OtherMenu> {
-    public OtherMenuController(OtherMenu menu) {
+public class DifficultySelectorClassicController extends Controller<DifficultySelector> {
+    public DifficultySelectorClassicController(DifficultySelector menu) {
         super(menu);
     }
     @Override
@@ -28,9 +26,9 @@ public class OtherMenuController extends Controller<OtherMenu> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if(getModel().isSelected(0)) app.setState(new DifficultySelectorSpecialState(new DifficultySelector()));
-                if(getModel().isSelected(1)) app.setState(new SpecialGame2PState(new SpecialGame2PBuilder().createSpecialGame()));
-                if (getModel().isSelected(2)) app.setState(new MenuState(new Menu()));
+                if(getModel().isSelected(0)) app.setState(new ClassicGame1PState(new ClassicGame1PBuilder(1).createClassicGame()));
+                if(getModel().isSelected(1)) app.setState(new ClassicGame1PState(new ClassicGame1PBuilder(2).createClassicGame()));
+                if (getModel().isSelected(2)) app.setState(new ClassicGame1PState(new ClassicGame1PBuilder(3).createClassicGame()));
         }
     }
 }
