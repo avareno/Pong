@@ -41,7 +41,6 @@ public class ClassicGame extends Game {
     public ClassicGame(int width,int height)
     {
         super(width,height);
-
     }
 
 }

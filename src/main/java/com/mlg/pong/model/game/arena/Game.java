@@ -43,10 +43,6 @@ public abstract class Game {
         this.ball = ball;
     }
 
-    public void setPowerUP(PowerUP powerup) {this.powerup = powerup;}
-
-    public PowerUP getPowerup() {return powerup;}
-
     public List<Walls> getWalls() {
         return walls;
     }

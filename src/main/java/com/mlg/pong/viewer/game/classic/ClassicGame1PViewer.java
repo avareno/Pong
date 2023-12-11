@@ -28,19 +28,15 @@ public class ClassicGame1PViewer extends Viewer<ClassicGame> {
 
         drawElement(gui, getModel().getBall(), new BallViewer());
         gui.drawText(new Position(getModel().getWidth()/2,2), Integer.toString(getModel().getPoints1()) + "-" + Integer.toString(getModel().getPoints2()),"#FFFFFF");
-        if(getModel().getPowerup() != null) {
-            if (!getModel().getPowerup().isConsumed()) {
-                drawElement(gui, getModel().getPowerup(), new PowerUpViewer());
-            }
-        }
+
     }
 
-    private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
+    protected <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
         for (T element : elements)
             drawElement(gui, element, viewer);
     }
 
-    private <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {
+    protected <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {
         viewer.draw(element, gui);
     }
 }

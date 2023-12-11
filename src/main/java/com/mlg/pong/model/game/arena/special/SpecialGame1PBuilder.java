@@ -1,11 +1,7 @@
 package com.mlg.pong.model.game.arena.special;
-
 import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.game.arena.classic.ClassicGame1PBuilder;
 import com.mlg.pong.model.game.elements.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SpecialGame1PBuilder extends ClassicGame1PBuilder {
 
@@ -20,14 +16,9 @@ public class SpecialGame1PBuilder extends ClassicGame1PBuilder {
         return powerup;
     }
     public ClassicGame createSpecialGame() {
-        ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
-        cgame.setPlayer1(super.createPlayer());
-        cgame.setPlayer2(createPlayer());
-        cgame.setWalls(createWalls());
-        cgame.setBall(createBall());
-        cgame.setPowerUP(createPowerUP());
-        cgame.setPoint1(0);
-        cgame.setPoints2(0);
+        SpecialGame cgame = new SpecialGame(getWidth(), getHeight());
+        super.createClassicGame();
+        cgame.setPowerup(createPowerUP());
         return cgame;
     }
 }
