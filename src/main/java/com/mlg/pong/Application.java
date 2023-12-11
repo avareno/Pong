@@ -26,8 +26,19 @@ public class Application {
         this.state = state;
     }
 
+    public static String extractClassName(String objectRepresentation) {
+            // Dividir a string usando "@" como delimitador
+            String[] parts = objectRepresentation.split("@");
+
+            // Obter a parte que contém o nome da classe
+            String classPart = parts[0];
+
+            // Extrair o nome da classe
+            int lastDotIndex = classPart.lastIndexOf(".");
+            return classPart.substring(lastDotIndex + 1);
+    }
     private void start() throws IOException {
-        int FPS = 10;
+        int FPS = 60;
         int frameTime = 1000 / FPS;
 
 

@@ -8,6 +8,8 @@ import com.mlg.pong.model.game.arena.ClassicGame;
 import com.mlg.pong.model.game.elements.Ball;
 import com.mlg.pong.model.game.elements.Computer;
 import com.mlg.pong.model.game.elements.Player;
+import com.mlg.pong.model.menu.GameOver;
+import com.mlg.pong.states.GameOverState;
 
 import java.io.IOException;
 
@@ -63,6 +65,9 @@ public class ComputerController extends Controller {
     }
     @Override
     public void step(Application app, GUI.ACTION action, long time){
+        if (this.model.getPoints2() >= 10){
+            app.setState(new GameOverState(new GameOver("Computer")));
+        }
         if(count<2) {
             if (time - lastMovement > 100) {
                 moveComputer();

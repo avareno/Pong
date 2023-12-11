@@ -5,6 +5,8 @@ import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.arena.ClassicGame;
+import com.mlg.pong.model.menu.GameOver;
+import com.mlg.pong.states.GameOverState;
 
 public class Player1Controller extends Controller {
     private ClassicGame model = (ClassicGame) getModel();
@@ -28,6 +30,9 @@ public class Player1Controller extends Controller {
 
     @Override
     public void step(Application app, GUI.ACTION action, long time) {
+        if (this.model.getPoints1() >= 10){
+            app.setState(new GameOverState(new GameOver("Player 1")));
+        }
         if (action == GUI.ACTION.UP) movePlayerUp();
         if (action == GUI.ACTION.DOWN) movePlayerDown();
     }
