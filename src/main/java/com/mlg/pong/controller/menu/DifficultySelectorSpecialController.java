@@ -23,9 +23,9 @@ public class DifficultySelectorSpecialController extends Controller<DifficultySe
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if(getModel().isSelected(0)) app.setState(new SpecialGame1PState(new SpecialGame1PBuilder(1).createSpecialGame()));
-                if(getModel().isSelected(1)) app.setState(new SpecialGame1PState(new SpecialGame1PBuilder(2).createSpecialGame()));
-                if (getModel().isSelected(2)) app.setState(new SpecialGame1PState(new SpecialGame1PBuilder(3).createSpecialGame()));
+                if(getModel().isSelected(0)) app.setState(new SpecialGame1PState(new SpecialGame1PBuilder().createSpecialGame(1)));
+                if(getModel().isSelected(1)) app.setState(new SpecialGame1PState(new SpecialGame1PBuilder().createSpecialGame(2)));
+                if (getModel().isSelected(2)) app.setState(new SpecialGame1PState(new SpecialGame1PBuilder().createSpecialGame(3)));
         }
     }
 }

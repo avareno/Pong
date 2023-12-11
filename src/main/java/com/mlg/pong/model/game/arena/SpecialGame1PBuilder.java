@@ -7,12 +7,10 @@ import java.util.List;
 
 public class SpecialGame1PBuilder {
 
-    private int difficulty;
 
-    public SpecialGame1PBuilder(int difficulty) {
+    public SpecialGame1PBuilder() {
         this.width = 70;
         this.height = 30;
-        this.difficulty = difficulty;
     }
 
     int height ,width;
@@ -61,7 +59,7 @@ public class SpecialGame1PBuilder {
         this.height = height;
     }
 
-    public ClassicGame createSpecialGame() {
+    public ClassicGame createSpecialGame(int difficulty) {
         ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
         cgame.setPlayer1(createPlayers(0));
         cgame.setComputer(createComputer());

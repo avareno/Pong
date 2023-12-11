@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClassicGame1PBuilder {
-    private int difficulty;
-    public ClassicGame1PBuilder(int difficulty) {
+
+    public ClassicGame1PBuilder() {
         this.width = 70;
         this.height = 30;
-        this.difficulty = difficulty;
     }
 
     int height ,width;
@@ -51,7 +50,7 @@ public class ClassicGame1PBuilder {
         this.height = height;
     }
 
-    public ClassicGame createClassicGame() {
+    public ClassicGame createClassicGame(int difficulty) {
         ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
         cgame.setPlayer1(createPlayer());
         cgame.setComputer(createComputer());

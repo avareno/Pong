@@ -12,6 +12,7 @@ import com.mlg.pong.model.menu.GameOver;
 import com.mlg.pong.states.GameOverState;
 
 import java.io.IOException;
+import java.util.Random;
 
 import static java.lang.Math.abs;
 
@@ -29,7 +30,7 @@ public class ComputerController extends Controller {
         if(ball.getVector().getP().getX()==1) {
             while (res != model.getWidth() - 1) {
                 res += ball.getVector().getP().getX();
-                res1 += ball.getVector().getP().getY();
+                res1 += ball.getVector().getP().getY() + getBias();
             }
             if (res1 < model.getComputer().getPosition().getY() || res1 <= 0) {
                 return -1;
@@ -38,6 +39,12 @@ public class ComputerController extends Controller {
             }
         }
         return 0;
+    }
+
+    public int getBias() {
+        Random random = new Random();
+        return random.nextInt(0,3)/ model.getDifficulty();
+        
     }
 
     public void moveDownComputer(){

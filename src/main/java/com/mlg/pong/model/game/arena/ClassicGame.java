@@ -13,6 +13,7 @@ public class ClassicGame {
     private Ball ball;
     private PowerUP powerup;
     private int count;
+    private int difficulty;
     private int width,height;
     private int points1, points2;
 
@@ -64,6 +65,14 @@ public class ClassicGame {
         } else if (count > 2) {
             return 1.1;
         } else {return 1;}
+    }
+
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
     }
 
     public Ball getBall() {
