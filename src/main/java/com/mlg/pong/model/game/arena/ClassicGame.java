@@ -12,6 +12,7 @@ public class ClassicGame {
     private Computer computer;
     private Ball ball;
     private PowerUP powerup;
+    private int count;
     private int width,height;
     private int points1, points2;
 
@@ -34,6 +35,36 @@ public class ClassicGame {
     public void addPoints1() {points1++;}
 
     public void addPoints2() {points2++;}
+
+    public void addCount() {count++;}
+
+    public void resetCount() {count = 0;}
+
+    public int getCount() {return count;}
+
+    public double ballSpeed() {
+        if (count > 16) {
+            return 4;
+        } else if (count > 8) {
+            return 2;
+        } else if (count > 4) {
+            return 1.5;
+        } else if (count > 2) {
+            return 1.25;
+        } else {return 1;}
+    }
+
+    public double comSpeed() {
+        if (count > 16) {
+            return 1.75;
+        } else if (count > 8) {
+            return 1.5;
+        } else if (count > 4) {
+            return 1.25;
+        } else if (count > 2) {
+            return 1.1;
+        } else {return 1;}
+    }
 
     public Ball getBall() {
         return ball;
@@ -147,6 +178,7 @@ public class ClassicGame {
     {
         this.width=width;
         this.height=height;
+        this.count = 0;
     }
 
     public void setBall(int i, int i1) {

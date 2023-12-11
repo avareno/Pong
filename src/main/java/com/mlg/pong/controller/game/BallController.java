@@ -26,6 +26,7 @@ public class BallController extends Controller {
             if(model.getBall().getPosition().getX()==0) {
                 model.addPoints2();
             }else{model.addPoints1();}
+            model.resetCount();
             model.setBall(model.getWidth()/2,model.getHeight()/2);
         }else{
             if (model.isEmpty(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY()),0)) {
@@ -36,7 +37,7 @@ public class BallController extends Controller {
                     model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(0)));}
                 else{
                     model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(1)));
-
+                    model.addCount();
                 }
 //                if (model.isPlayer(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY())){
 //                    model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(1)));
@@ -47,15 +48,11 @@ public class BallController extends Controller {
         }
     }
 
-
-
-
     @Override
     public void step(Application app, GUI.ACTION action, long time) {
-        if (time - lastMovement > 100) {
+        if (time - lastMovement > 100/model.ballSpeed()) {
             moveBall();
             lastMovement = time;
         }
-
     }
 }

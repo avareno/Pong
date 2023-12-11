@@ -18,7 +18,6 @@ import static java.lang.Math.abs;
 public class ComputerController extends Controller {
     private ClassicGame model = (ClassicGame) getModel();
     private long lastMovement;
-    private int count = 0;
 
     public ComputerController(ClassicGame cgame) {
         super(cgame);
@@ -63,24 +62,15 @@ public class ComputerController extends Controller {
         if(calculatePosition(model.getBall())==-1)moveUpComputer();
         else moveDownComputer();
     }
+
     @Override
     public void step(Application app, GUI.ACTION action, long time){
         if (this.model.getPoints2() >= 10){
             app.setState(new GameOverState(new GameOver("Computer")));
         }
-        if(count<2) {
-            if (time - lastMovement > 100) {
+            if (time - lastMovement > 100/ model.comSpeed()) {
                 moveComputer();
                 lastMovement = time;
-            }
-        }else{
-            if (time - lastMovement > 0.0005) {
-                moveComputer();
-                lastMovement = time;
-            }
-        }
-        if(model.getBall().getPosition().getX()==(model.getComputer().getPosition().getX()-1)){
-            count++;
         }
     }
 }
