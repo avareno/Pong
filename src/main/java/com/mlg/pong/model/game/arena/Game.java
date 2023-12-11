@@ -70,11 +70,6 @@ public abstract class Game {
         for(Position p: getPlayer1().getPlayersPositions()){
             if(p.equals(position) || ball.getPosition().equals(position))return false;
         }
-//        if (player2 != null) {
-//            for (Position p : getPlayer2().getPlayersPositions()) {
-//                if (p.equals(position)) return false;
-//            }
-//        }
         return true;
     }
 

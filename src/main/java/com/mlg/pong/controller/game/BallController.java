@@ -16,29 +16,29 @@ public class BallController extends Controller {
     }
 
 
-    public void moveBall(){
-        if(model.getBall().getPosition().getX()==0 || model.getBall().getPosition().getX()==model.getWidth()-1){
-            if(model.getBall().getPosition().getX()==0) {
+    public void moveBall() {
+        if (model.getBall().getPosition().getX() == 0 || model.getBall().getPosition().getX() == model.getWidth() - 1) {
+            if (model.getBall().getPosition().getX() == 0) {
                 model.addPoints2();
-            }else{model.addPoints1();}
-            model.setBall(model.getWidth()/2,model.getHeight()/2);
-        }else{
-            if (model.isEmpty(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY()))) {
-                model.setBall(new Ball(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY(), model.getBall().getVector()));
             } else {
-
-                if (model.isWall(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY()))) {
-                    model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(0)));}
-                else{
-                    model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(1)));
-
-                }
-//                if (model.isPlayer(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY())){
-//                    model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(1)));
-//                } else if (model.isWall(new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(), model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY()))) {
-//                    model.setBall(new Ball(model.getBall().getPosition().getX(), model.getBall().getPosition().getY(), model.getBall().invertVector(0)));
-//                }
+                model.addPoints1();
             }
+            model.setBall(model.getWidth() / 2, model.getHeight() / 2);
+        } else {
+            Position newPosition = new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY());
+            Ball newBall = new Ball(newPosition.getX(), newPosition.getY(), model.getBall().getVector());
+
+            model.setBall(
+                    model.isEmpty(newPosition)
+                            ? newBall
+                            : new Ball(
+                            model.getBall().getPosition().getX(),
+                            model.getBall().getPosition().getY(),
+                            model.isWall(newPosition)
+                                    ? model.getBall().invertVector(0)
+                                    : model.getBall().invertVector(1)
+                    )
+            );
         }
     }
 
