@@ -5,7 +5,7 @@ import com.mlg.pong.controller.game.special.SpecialGame2PController;
 import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.states.State;
 import com.mlg.pong.viewer.Viewer;
-import com.mlg.pong.viewer.game.ClassicGame2PViewer;
+import com.mlg.pong.viewer.game.classic.ClassicGame2PViewer;
 
 public class SpecialGame2PState extends State {
     public SpecialGame2PState(ClassicGame cgame) {

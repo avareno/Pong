@@ -1,10 +1,11 @@
-package com.mlg.pong.viewer.game;
+package com.mlg.pong.viewer.game.classic;
 
 import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.game.elements.Element;
 import com.mlg.pong.viewer.Viewer;
+import com.mlg.pong.viewer.game.*;
 
 import java.util.List;
 

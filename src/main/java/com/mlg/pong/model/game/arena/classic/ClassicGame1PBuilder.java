@@ -1,61 +1,21 @@
 package com.mlg.pong.model.game.arena.classic;
-import com.mlg.pong.model.game.arena.classic.ClassicGame;
+import com.mlg.pong.model.game.arena.GameBuilder;
 import com.mlg.pong.model.game.elements.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ClassicGame1PBuilder {
+public class ClassicGame1PBuilder extends GameBuilder {
     private int difficulty;
     public ClassicGame1PBuilder(int difficulty) {
-        this.width = 70;
-        this.height = 30;
+        super();
         this.difficulty = difficulty;
     }
-
-    int height ,width;
-
-    protected Ball createBall(){
-        return new Ball(width/2,height/2);
-    }
-    protected List<Walls> createWalls(){
-        List<Walls> walls = new ArrayList<>();
-
-        for (int c = 0; c < width; c++) {
-            walls.add(new Walls(c, 0));
-            walls.add(new Walls(c, height - 1));
-        }
-        return walls;
-    }
-
-    protected Computer createComputer(){
-        return new Computer(width-2, (height/2));
-    }
-
-    protected Player createPlayer(){
-        return new Player(1, (height / 2));
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
+    public Computer createComputer(){
+        return new Computer(getWidth()-2, (getHeight()/2));
     }
 
     public ClassicGame createClassicGame() {
         ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
-        cgame.setPlayer1(createPlayer());
-        cgame.setComputer(createComputer());
+        cgame.setPlayer1(super.createPlayer());
+        cgame.setPlayer2(createComputer());
         cgame.setWalls(createWalls());
         cgame.setBall(createBall());
         cgame.setPoint1(0);

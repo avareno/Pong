@@ -65,7 +65,7 @@ public class SpecialGame1PBuilder {
     public ClassicGame createSpecialGame() {
         ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
         cgame.setPlayer1(createPlayers(0));
-        cgame.setComputer(createComputer());
+        //cgame.setComputer(createComputer());
         cgame.setWalls(createWalls());
         cgame.setBall(createBall());
         cgame.setPowerUP(createPowerUP());

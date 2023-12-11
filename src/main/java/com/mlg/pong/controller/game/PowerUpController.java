@@ -30,7 +30,7 @@ public class PowerUpController extends Controller {
         if (model.getPlayer2() != null) {
             playerX.add(model.getPlayer2().getPosition().getX());
         } else {
-            playerX.add(model.getComputer().getPosition().getX());
+            playerX.add(model.getPlayer2().getPosition().getX());
         }
     }
 
@@ -64,7 +64,7 @@ public class PowerUpController extends Controller {
                 model.getPlayer1().setSize(defaultsize);
                 if (model.getPlayer2() != null) {
                     model.getPlayer2().setSize(defaultsize);
-                } else {model.getComputer().setSize(defaultsize);}
+                } else {model.getPlayer2().setSize(defaultsize);}
             }
         } else if(model.getPowerup().isConsumed()) {
             last = time;
@@ -74,7 +74,7 @@ public class PowerUpController extends Controller {
             }else {
                 if (model.getPlayer2() != null) {
                     model.getPlayer2().setSize(defaultsize + 2);
-                } else {model.getComputer().setSize(defaultsize + 2);}
+                } else {model.getPlayer2().setSize(defaultsize + 2);}
             }
         }
         checkPlayerPos();
