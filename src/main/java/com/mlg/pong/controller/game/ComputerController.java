@@ -6,7 +6,7 @@ import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.game.elements.Ball;
-import com.mlg.pong.model.game.elements.Computer;
+import com.mlg.pong.model.game.elements.Player;
 import com.mlg.pong.model.game.elements.Player;
 
 import java.io.IOException;
@@ -43,16 +43,17 @@ public class ComputerController extends Controller {
         int positionAdjustment = calculatePosition(model.getBall());
         if (model.isEmpty(new Position(model.getPlayer2().getPosition().getX(),model.getPlayer2().getPlayersPositions().get(model.getPlayer2().getPlayersPositions().size()-1).getY() + positionAdjustment), 1)) {
 
-            Computer computer = (Computer) model.getPlayer2();
+            Player computer =  model.getPlayer2();
                 computer.setPosition(new Position(computer.getPosition().getX(), computer.getPosition().getY() + positionAdjustment));
 
         }
     }
     public void moveUpComputer(){
+
         int positionAdjustment = calculatePosition(model.getBall());
         if (model.isEmpty(new Position(model.getPlayer2().getPosition().getX(),model.getPlayer2().getPlayersPositions().get(0).getY() + positionAdjustment), 1)) {
 
-            Computer computer = (Computer) model.getPlayer2();
+            Player computer =  model.getPlayer2();
             computer.setPosition(new Position(computer.getPosition().getX(), computer.getPosition().getY() + positionAdjustment));
 
         }
