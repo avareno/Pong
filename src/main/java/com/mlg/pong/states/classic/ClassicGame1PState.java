@@ -1,12 +1,13 @@
-package com.mlg.pong.states;
+package com.mlg.pong.states.classic;
 
 import com.mlg.pong.controller.Controller;
-import com.mlg.pong.controller.game.ClassicGame1PController;
-import com.mlg.pong.model.game.arena.ClassicGame;
+import com.mlg.pong.controller.game.classic.ClassicGame1PController;
+import com.mlg.pong.model.game.arena.classic.ClassicGame;
+import com.mlg.pong.states.State;
 import com.mlg.pong.viewer.Viewer;
 import com.mlg.pong.viewer.game.ClassicGame1PViewer;
 
-public class ClassicGame1PState extends State{
+public class ClassicGame1PState extends State {
     public ClassicGame1PState(ClassicGame cgame) {
         super(cgame);
     }

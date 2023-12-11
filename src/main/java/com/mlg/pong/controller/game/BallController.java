@@ -4,13 +4,8 @@ import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.Position;
-import com.mlg.pong.model.game.arena.ClassicGame;
+import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.game.elements.Ball;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 
 public class BallController extends Controller {
     private ClassicGame model = (ClassicGame) getModel();

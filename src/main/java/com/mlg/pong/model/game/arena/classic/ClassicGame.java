@@ -1,4 +1,4 @@
-package com.mlg.pong.model.game.arena;
+package com.mlg.pong.model.game.arena.classic;
 
 import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.elements.*;

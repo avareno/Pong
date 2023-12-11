@@ -2,14 +2,12 @@ package com.mlg.pong.controller.menu;
 import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
-import com.mlg.pong.model.game.arena.ClassicGame1PBuilder;
-import com.mlg.pong.model.game.arena.ClassicGame2PBuilder;
+import com.mlg.pong.model.game.arena.classic.ClassicGame2PBuilder;
 import com.mlg.pong.model.menu.ClassicGameMenu;
 import com.mlg.pong.model.menu.DifficultySelector;
 import com.mlg.pong.model.menu.Menu;
-import com.mlg.pong.states.ClassicGame1PState;
-import com.mlg.pong.states.ClassicGame2PState;
-import com.mlg.pong.states.DifficultySelectorClassicState;
+import com.mlg.pong.states.classic.ClassicGame2PState;
+import com.mlg.pong.states.classic.DifficultySelectorClassicState;
 import com.mlg.pong.states.MenuState;
 
 import java.io.IOException;

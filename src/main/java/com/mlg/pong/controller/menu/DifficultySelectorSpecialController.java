@@ -3,9 +3,9 @@ package com.mlg.pong.controller.menu;
 import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
-import com.mlg.pong.model.game.arena.SpecialGame1PBuilder;
+import com.mlg.pong.model.game.arena.special.SpecialGame1PBuilder;
 import com.mlg.pong.model.menu.DifficultySelector;
-import com.mlg.pong.states.SpecialGame1PState;
+import com.mlg.pong.states.special.SpecialGame1PState;
 
 import java.io.IOException;
 

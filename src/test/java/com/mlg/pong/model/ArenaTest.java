@@ -1,6 +1,6 @@
 //package com.mlg.pong.model;
 //
-//import com.mlg.pong.model.game.arena.ClassicGame;
+//import com.mlg.pong.model.game.arena.classic.ClassicGame;
 //import com.mlg.pong.model.game.arena.ClassicGameBuilder;
 //import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;

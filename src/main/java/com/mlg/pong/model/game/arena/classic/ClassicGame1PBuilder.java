@@ -1,15 +1,16 @@
-package com.mlg.pong.model.game.arena;
-
+package com.mlg.pong.model.game.arena.classic;
+import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.game.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpecialGame2PBuilder {
-
-    public SpecialGame2PBuilder() {
+public class ClassicGame1PBuilder {
+    private int difficulty;
+    public ClassicGame1PBuilder(int difficulty) {
         this.width = 70;
         this.height = 30;
+        this.difficulty = difficulty;
     }
 
     int height ,width;
@@ -27,15 +28,12 @@ public class SpecialGame2PBuilder {
         return walls;
     }
 
-    protected Player createPlayers(int i){
-        if(i==0)return new Player(1, (height / 2));
-        else return new Player(width-2,(height / 2));
+    protected Computer createComputer(){
+        return new Computer(width-2, (height/2));
     }
 
-    protected PowerUP createPowerUP(){
-        PowerUP powerup = new PowerUP(1,1);
-        powerup.Consume();
-        return powerup;
+    protected Player createPlayer(){
+        return new Player(1, (height / 2));
     }
 
     public int getWidth() {
@@ -54,13 +52,12 @@ public class SpecialGame2PBuilder {
         this.height = height;
     }
 
-    public ClassicGame createSpecialGame() {
+    public ClassicGame createClassicGame() {
         ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
-        cgame.setPlayer1(createPlayers(0));
-        cgame.setPlayer2(createPlayers(1));
+        cgame.setPlayer1(createPlayer());
+        cgame.setComputer(createComputer());
         cgame.setWalls(createWalls());
         cgame.setBall(createBall());
-        cgame.setPowerUP(createPowerUP());
         cgame.setPoint1(0);
         cgame.setPoints2(0);
         return cgame;

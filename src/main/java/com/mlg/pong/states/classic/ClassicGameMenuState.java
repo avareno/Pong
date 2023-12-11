@@ -1,8 +1,9 @@
-package com.mlg.pong.states;
+package com.mlg.pong.states.classic;
 
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.controller.menu.ClassicGameMenuController;
 import com.mlg.pong.model.menu.ClassicGameMenu;
+import com.mlg.pong.states.State;
 import com.mlg.pong.viewer.Viewer;
 import com.mlg.pong.viewer.menu.ClassicGameMenuViewer;
 

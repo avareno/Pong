@@ -2,7 +2,7 @@
 //
 //import com.mlg.pong.controller.game.Player1Controller;
 //import com.mlg.pong.model.Position;
-//import com.mlg.pong.model.game.arena.ClassicGame;
+//import com.mlg.pong.model.game.arena.classic.ClassicGame;
 //import com.mlg.pong.model.game.arena.ClassicGameBuilder;
 //import com.mlg.pong.model.game.elements.Player;
 //import org.junit.jupiter.api.Assertions;

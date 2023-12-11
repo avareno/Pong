@@ -4,7 +4,7 @@ import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.Position;
-import com.mlg.pong.model.game.arena.ClassicGame;
+import com.mlg.pong.model.game.arena.classic.ClassicGame;
 
 public class Player1Controller extends Controller {
     private ClassicGame model = (ClassicGame) getModel();

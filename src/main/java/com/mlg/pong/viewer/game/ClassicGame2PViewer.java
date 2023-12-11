@@ -2,7 +2,7 @@ package com.mlg.pong.viewer.game;
 
 import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.Position;
-import com.mlg.pong.model.game.arena.ClassicGame;
+import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.game.elements.Element;
 import com.mlg.pong.viewer.Viewer;
 

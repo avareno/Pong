@@ -7,7 +7,7 @@ import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.menu.ClassicGameMenu;
 import com.mlg.pong.model.menu.Menu;
 import com.mlg.pong.model.menu.OtherMenu;
-import com.mlg.pong.states.ClassicGameMenuState;
+import com.mlg.pong.states.classic.ClassicGameMenuState;
 import com.mlg.pong.states.OtherMenuState;
 //import com.aor.hero.states.GameState;
 
