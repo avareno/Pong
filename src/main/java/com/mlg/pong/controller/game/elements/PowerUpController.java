@@ -1,4 +1,4 @@
-package com.mlg.pong.controller.game;
+package com.mlg.pong.controller.game.elements;
 import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.gui.GUI;
@@ -20,8 +20,8 @@ public class PowerUpController extends Controller {
     private List<Integer> playerX;
 
 
-    public PowerUpController(ClassicGame cgame) {
-        super(cgame);
+    public PowerUpController(SpecialGame sgame) {
+        super(sgame);
         this.flag = false;
         this.last = 0;
         this.defaultsize = model.getPlayer1().getSize();

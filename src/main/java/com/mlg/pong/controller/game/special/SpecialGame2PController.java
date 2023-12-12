@@ -2,12 +2,12 @@ package com.mlg.pong.controller.game.special;
 
 import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
-import com.mlg.pong.controller.game.BallController;
-import com.mlg.pong.controller.game.Player1Controller;
-import com.mlg.pong.controller.game.Player2Controller;
-import com.mlg.pong.controller.game.PowerUpController;
+import com.mlg.pong.controller.game.elements.BallController;
+import com.mlg.pong.controller.game.elements.Player1Controller;
+import com.mlg.pong.controller.game.elements.Player2Controller;
+import com.mlg.pong.controller.game.elements.PowerUpController;
 import com.mlg.pong.gui.GUI;
-import com.mlg.pong.model.game.arena.classic.ClassicGame;
+import com.mlg.pong.model.game.arena.special.SpecialGame;
 import com.mlg.pong.model.menu.Menu;
 import com.mlg.pong.states.MenuState;
 
@@ -19,14 +19,12 @@ public class SpecialGame2PController extends Controller {
     private final BallController ballController;
     private final PowerUpController powerUpController;
 
-    public SpecialGame2PController(ClassicGame cgame) {
-        super(cgame);
-
-        this.player1Controller = new Player1Controller(cgame);
-        this.ballController = new BallController(cgame);
-        this.player2Controller = new Player2Controller(cgame);
-        this.powerUpController = new PowerUpController(cgame);
-
+    public SpecialGame2PController(SpecialGame sgame) {
+        super(sgame);
+        this.player1Controller = new Player1Controller(sgame);
+        this.ballController = new BallController(sgame);
+        this.player2Controller = new Player2Controller(sgame);
+        this.powerUpController = new PowerUpController(sgame);
     }
 
     public void step(Application app, GUI.ACTION action, long time) throws IOException {

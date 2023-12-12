@@ -2,14 +2,13 @@ package com.mlg.pong.controller.game.classic;
 
 import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
-import com.mlg.pong.controller.game.BallController;
-import com.mlg.pong.controller.game.Player1Controller;
-import com.mlg.pong.controller.game.Player2Controller;
+import com.mlg.pong.controller.game.elements.BallController;
+import com.mlg.pong.controller.game.elements.Player1Controller;
+import com.mlg.pong.controller.game.elements.Player2Controller;
 import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.menu.Menu;
 import com.mlg.pong.states.MenuState;
-
 import java.io.IOException;
 
 public class ClassicGame2PController extends Controller {

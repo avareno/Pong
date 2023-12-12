@@ -1,4 +1,4 @@
-package com.mlg.pong.states.special;
+package com.mlg.pong.states;
 
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.controller.menu.DifficultySelectorSpecialController;

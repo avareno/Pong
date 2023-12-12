@@ -1,6 +1,6 @@
 //package com.mlg.pong.controller;
 //
-//import com.mlg.pong.controller.game.Player1Controller;
+//import com.mlg.pong.controller.game.elements.Player1Controller;
 //import com.mlg.pong.model.Position;
 //import com.mlg.pong.model.game.arena.classic.ClassicGame;
 //import com.mlg.pong.model.game.arena.ClassicGameBuilder;

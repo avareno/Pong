@@ -2,9 +2,9 @@ package com.mlg.pong.controller.game.classic;
 
 import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;
-import com.mlg.pong.controller.game.BallController;
-import com.mlg.pong.controller.game.ComputerController;
-import com.mlg.pong.controller.game.Player1Controller;
+import com.mlg.pong.controller.game.elements.BallController;
+import com.mlg.pong.controller.game.elements.ComputerController;
+import com.mlg.pong.controller.game.elements.Player1Controller;
 import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.menu.Menu;
@@ -19,7 +19,6 @@ public class ClassicGame1PController extends Controller {
 
     public ClassicGame1PController(ClassicGame cgame) {
         super(cgame);
-
         this.playerController = new Player1Controller(cgame);
         this.ballController = new BallController(cgame);
         this.computerController= new ComputerController(cgame);

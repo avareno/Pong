@@ -16,8 +16,8 @@ public class ClassicGame2PBuilder extends GameBuilder {
         ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
         cgame.setPlayer1(super.createPlayer());
         cgame.setPlayer2(createPlayer());
-        cgame.setWalls(super.createWalls());
-        cgame.setBall(super.createBall());
+        cgame.setWalls(createWalls());
+        cgame.setBall(createBall());
         cgame.setPoint1(0);
         cgame.setPoints2(0);
         return cgame;

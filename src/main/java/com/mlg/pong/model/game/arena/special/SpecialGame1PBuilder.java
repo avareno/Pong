@@ -15,9 +15,10 @@ public class SpecialGame1PBuilder extends ClassicGame1PBuilder {
         powerup.Consume();
         return powerup;
     }
-    public ClassicGame createSpecialGame() {
+    @Override
+    public SpecialGame createGame() {
         SpecialGame cgame = new SpecialGame(getWidth(), getHeight());
-        super.createClassicGame();
+        super.createGame();
         cgame.setPowerup(createPowerUP());
         return cgame;
     }

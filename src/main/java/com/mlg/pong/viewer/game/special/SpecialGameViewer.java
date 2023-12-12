@@ -1,15 +1,13 @@
 package com.mlg.pong.viewer.game.special;
 
 import com.mlg.pong.gui.GUI;
-import com.mlg.pong.model.game.arena.classic.ClassicGame;
-import com.mlg.pong.model.game.arena.classic.ClassicGame1PBuilder;
 import com.mlg.pong.model.game.arena.special.SpecialGame;
 import com.mlg.pong.viewer.game.PowerUpViewer;
-import com.mlg.pong.viewer.game.classic.ClassicGame1PViewer;
+import com.mlg.pong.viewer.game.classic.ClassicGameViewer;
 
-public class SpecialGame1PViewer extends ClassicGame1PViewer {
+public class SpecialGameViewer extends ClassicGameViewer {
 
-    public SpecialGame1PViewer(SpecialGame sgame) {
+    public SpecialGameViewer(SpecialGame sgame) {
         super(sgame);
     }
 

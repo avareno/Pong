@@ -6,20 +6,20 @@ import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.game.arena.special.SpecialGame;
 import com.mlg.pong.states.State;
 import com.mlg.pong.viewer.Viewer;
-import com.mlg.pong.viewer.game.special.SpecialGame1PViewer;
+import com.mlg.pong.viewer.game.special.SpecialGameViewer;
 
 public class SpecialGame2PState extends State {
-    public SpecialGame2PState(ClassicGame cgame) {
+    public SpecialGame2PState(SpecialGame cgame) {
         super(cgame);
     }
 
     @Override
     protected Viewer<ClassicGame> getViewer() {
-        return new SpecialGame1PViewer((SpecialGame) getModel());
+        return new SpecialGameViewer((SpecialGame) getModel());
     }
 
     @Override//make controller
-    protected Controller<ClassicGame> getController() {
+    protected Controller<SpecialGame> getController() {
         return new SpecialGame2PController((SpecialGame) getModel());
     }
 }

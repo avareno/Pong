@@ -8,10 +8,7 @@ import java.util.List;
 public abstract class Game {
     private List<Walls> walls;
     private Player player1;
-    private Player player2;
-    private Computer computer;
     private Ball ball;
-    private PowerUP powerup;
     private int width,height;
     private int points1, points2;
 

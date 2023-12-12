@@ -22,9 +22,9 @@ public class DifficultySelectorClassicController extends Controller<DifficultySe
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if(getModel().isSelected(0)) app.setState(new ClassicGame1PState(new ClassicGame1PBuilder(1).createClassicGame()));
-                if(getModel().isSelected(1)) app.setState(new ClassicGame1PState(new ClassicGame1PBuilder(2).createClassicGame()));
-                if (getModel().isSelected(2)) app.setState(new ClassicGame1PState(new ClassicGame1PBuilder(3).createClassicGame()));
+                if(getModel().isSelected(0)) app.setState(new ClassicGame1PState(new ClassicGame1PBuilder(1).createGame()));
+                if(getModel().isSelected(1)) app.setState(new ClassicGame1PState(new ClassicGame1PBuilder(2).createGame()));
+                if (getModel().isSelected(2)) app.setState(new ClassicGame1PState(new ClassicGame1PBuilder(3).createGame()));
         }
     }
 }

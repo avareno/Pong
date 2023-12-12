@@ -1,4 +1,4 @@
-package com.mlg.pong.controller.game;
+package com.mlg.pong.controller.game.elements;
 
 import com.mlg.pong.Application;
 import com.mlg.pong.controller.Controller;

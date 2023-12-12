@@ -31,7 +31,6 @@ public abstract class GameBuilder {
 
     protected Player createPlayer(){
         return new Player(1, (height / 2));
-
     }
 
     public int getWidth() {

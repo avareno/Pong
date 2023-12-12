@@ -12,7 +12,7 @@ public class ClassicGame1PBuilder extends GameBuilder {
         return new Computer(getWidth()-2, (getHeight()/2));
     }
 
-    public ClassicGame createClassicGame() {
+    public ClassicGame createGame() {
         ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
         cgame.setPlayer1(super.createPlayer());
         cgame.setPlayer2(createComputer());

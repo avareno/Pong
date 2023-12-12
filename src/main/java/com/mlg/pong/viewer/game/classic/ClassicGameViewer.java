@@ -9,9 +9,9 @@ import com.mlg.pong.viewer.game.*;
 
 import java.util.List;
 
-public class ClassicGame1PViewer extends Viewer<ClassicGame> {
+public class ClassicGameViewer extends Viewer<ClassicGame> {
 
-    public ClassicGame1PViewer(ClassicGame cgame) {
+    public ClassicGameViewer(ClassicGame cgame) {
         super(cgame);
     }
 
@@ -24,8 +24,7 @@ public class ClassicGame1PViewer extends Viewer<ClassicGame> {
     public void drawElements(GUI gui) {
         drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElement(gui,getModel().getPlayer1(), new PlayerViewer());
-        drawElement(gui,getModel().getPlayer2(), new PlayerViewer());//atençao mudei, era suposto ser drawElement(gui,getModel().getComputer(), new ComputerViewer());
-
+        drawElement(gui,getModel().getPlayer2(), new PlayerViewer());
         drawElement(gui, getModel().getBall(), new BallViewer());
         gui.drawText(new Position(getModel().getWidth()/2,2), Integer.toString(getModel().getPoints1()) + "-" + Integer.toString(getModel().getPoints2()),"#FFFFFF");
 
