@@ -18,7 +18,11 @@ public class SpecialGame1PBuilder extends ClassicGame1PBuilder {
     @Override
     public SpecialGame createGame() {
         SpecialGame cgame = new SpecialGame(getWidth(), getHeight());
-        super.createGame();
+        ClassicGame classicGame = super.createGame();
+        cgame.setPlayer1(classicGame.getPlayer1());
+        cgame.setPlayer2(classicGame.getPlayer2());
+        cgame.setWalls(classicGame.getWalls());
+        cgame.setBall(classicGame.getBall());
         cgame.setPowerup(createPowerUP());
         return cgame;
     }

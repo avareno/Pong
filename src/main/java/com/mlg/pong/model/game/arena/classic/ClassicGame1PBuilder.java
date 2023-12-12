@@ -8,10 +8,9 @@ public class ClassicGame1PBuilder extends GameBuilder {
         super();
         this.difficulty = difficulty;
     }
-    public Computer createComputer(){
-        return new Computer(getWidth()-2, (getHeight()/2));
+    public Player createComputer(){
+        return new Player(getWidth()-2, (getHeight()/2));
     }
-
     public ClassicGame createGame() {
         ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
         cgame.setPlayer1(super.createPlayer());

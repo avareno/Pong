@@ -2,7 +2,6 @@ package com.mlg.pong.states.special;
 
 import com.mlg.pong.controller.Controller;
 import com.mlg.pong.controller.game.special.SpecialGame2PController;
-import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.game.arena.special.SpecialGame;
 import com.mlg.pong.states.State;
 import com.mlg.pong.viewer.Viewer;
@@ -14,7 +13,7 @@ public class SpecialGame2PState extends State {
     }
 
     @Override
-    protected Viewer<ClassicGame> getViewer() {
+    protected Viewer<SpecialGame> getViewer() {
         return new SpecialGameViewer((SpecialGame) getModel());
     }
 

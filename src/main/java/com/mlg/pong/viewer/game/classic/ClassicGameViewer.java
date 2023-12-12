@@ -1,5 +1,4 @@
 package com.mlg.pong.viewer.game.classic;
-
 import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.Position;
 import com.mlg.pong.model.game.arena.classic.ClassicGame;

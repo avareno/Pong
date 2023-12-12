@@ -12,7 +12,7 @@ public class ClassicGame2PBuilder extends GameBuilder {
     }
 
 
-    public ClassicGame createClassicGame() {
+    public ClassicGame createGame() {
         ClassicGame cgame = new ClassicGame(getWidth(), getHeight());
         cgame.setPlayer1(super.createPlayer());
         cgame.setPlayer2(createPlayer());

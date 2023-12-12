@@ -27,7 +27,7 @@ public class ClassicGameMenuController extends Controller<ClassicGameMenu> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if (getModel().isSelected(0)) app.setState(new ClassicGame2PState(new ClassicGame2PBuilder().createClassicGame()));
+                if (getModel().isSelected(0)) app.setState(new ClassicGame2PState(new ClassicGame2PBuilder().createGame()));
                 if (getModel().isSelected(1)) app.setState(new DifficultySelectorClassicState(new DifficultySelector()));
                 if (getModel().isSelected(2)) app.setState(new MenuState(new Menu()));
         }

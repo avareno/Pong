@@ -14,7 +14,7 @@ public class SpecialGame1PState extends State {
     }
 
     @Override
-    protected Viewer<ClassicGame> getViewer() {
+    protected Viewer<SpecialGame> getViewer() {
         return new SpecialGameViewer((SpecialGame) getModel());
     }
 

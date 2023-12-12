@@ -27,7 +27,7 @@ public class OtherMenuController extends Controller<OtherMenu> {
                 break;
             case SELECT:
                 if(getModel().isSelected(0)) app.setState(new DifficultySelectorSpecialState(new DifficultySelector()));
-                if(getModel().isSelected(1)) app.setState(new SpecialGame2PState(new SpecialGame2PBuilder().createSpecialGame()));
+                if(getModel().isSelected(1)) app.setState(new SpecialGame2PState(new SpecialGame2PBuilder().createGame()));
                 if (getModel().isSelected(2)) app.setState(new MenuState(new Menu()));
         }
     }

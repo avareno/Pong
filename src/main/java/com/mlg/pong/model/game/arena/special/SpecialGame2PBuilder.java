@@ -1,5 +1,6 @@
 package com.mlg.pong.model.game.arena.special;
 
+import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.game.arena.classic.ClassicGame2PBuilder;
 import com.mlg.pong.model.game.elements.*;
 
@@ -13,10 +14,15 @@ public class SpecialGame2PBuilder extends ClassicGame2PBuilder {
         powerup.Consume();
         return powerup;
     }
-    public SpecialGame createSpecialGame() {
-        SpecialGame sgame = new SpecialGame(getWidth(), getHeight());
-        super.createClassicGame();
-        sgame.setPowerup(createPowerUP());
-        return sgame;
+    @Override
+    public SpecialGame createGame() {
+        SpecialGame cgame = new SpecialGame(getWidth(), getHeight());
+        ClassicGame classicGame = super.createGame();
+        cgame.setPlayer1(classicGame.getPlayer1());
+        cgame.setPlayer2(classicGame.getPlayer2());
+        cgame.setWalls(classicGame.getWalls());
+        cgame.setBall(classicGame.getBall());
+        cgame.setPowerup(createPowerUP());
+        return cgame;
     }
 }
