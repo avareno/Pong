@@ -6,7 +6,7 @@ import com.mlg.pong.model.menu.GameOver;
 import com.mlg.pong.viewer.Viewer;
 import com.mlg.pong.viewer.menu.GameOverViewer;
 
-public class GameOverState extends State<GameOver>{
+public class GameOverState extends State<GameOver> {
 
     public GameOverState(GameOver model) {
         super(model);

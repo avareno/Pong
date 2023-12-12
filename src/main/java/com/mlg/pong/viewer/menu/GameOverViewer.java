@@ -13,7 +13,7 @@ public class GameOverViewer extends Viewer<GameOver> {
 
     @Override
     protected void drawElements(GUI gui) {
-        gui.drawText(new Position(25,15),(getModel().getWhoWon() + " Won!"),"#FFFFFF");
+        gui.drawText(new Position(25, 15), (getModel().getWhoWon() + " Won!"), "#FFFFFF");
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
                     new Position(25, 17 + i),

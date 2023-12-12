@@ -6,8 +6,6 @@ import com.mlg.pong.gui.GUI;
 import com.mlg.pong.model.menu.GameOver;
 import com.mlg.pong.model.menu.Menu;
 import com.mlg.pong.states.MenuState;
-
-
 import java.io.IOException;
 
 public class GameOverController extends Controller<GameOver> {

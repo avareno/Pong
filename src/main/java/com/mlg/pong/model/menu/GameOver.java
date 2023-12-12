@@ -6,9 +6,9 @@ import java.util.List;
 public class GameOver {
     private final String whoWon;
 
-    public GameOver(String name){
+    public GameOver(String name) {
         this.whoWon = name;
-        this.entries = Arrays.asList("Exit","Menu");
+        this.entries = Arrays.asList("Exit", "Menu");
     }
 
     public String getWhoWon() {

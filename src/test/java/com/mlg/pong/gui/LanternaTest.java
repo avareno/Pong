@@ -4,6 +4,7 @@ import com.mlg.pong.model.Position;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
+import com.mlg.pong.model.game.elements.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -26,7 +27,7 @@ class LanternaTest {
 
     @Test
     void drawHero() {
-        gui.drawPlayer(new Position(1, 1));
+        gui.drawPlayer(new Player(1,1));
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 215, 0));
         Mockito.verify(tg, Mockito.times(1)).putString(1, 2, "█");
