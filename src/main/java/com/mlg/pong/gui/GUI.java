@@ -25,5 +25,5 @@ public interface GUI {
 
     void drawBall(Position position);
 
-    enum ACTION {UP, RIGHT, DOWN, LEFT, P2UP, P2RIGHT, P2DOWN, P2LEFT, NONE, QUIT, SELECT}
+    enum ACTION {UP, DOWN, P2UP, P2DOWN, NONE, QUIT, SELECT}
 }
