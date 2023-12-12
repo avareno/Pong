@@ -25,7 +25,7 @@ public class ClassicGameViewer extends Viewer<ClassicGame> {
         drawElement(gui,getModel().getPlayer1(), new PlayerViewer());
         drawElement(gui,getModel().getPlayer2(), new PlayerViewer());
         drawElement(gui, getModel().getBall(), new BallViewer());
-        gui.drawText(new Position(getModel().getWidth()/2,2), Integer.toString(getModel().getPoints1()) + "-" + Integer.toString(getModel().getPoints2()),"#FFFFFF");
+        gui.drawText(new Position(getModel().getWidth()/2-1,2), Integer.toString(getModel().getPoints1()) + "-" + Integer.toString(getModel().getPoints2()),"#FFFFFF");
 
     }
 

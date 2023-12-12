@@ -23,6 +23,7 @@ public class BallController extends Controller {
             } else {
                 model.addPoints1();
             }
+            model.resetCount();
             model.setBall(model.getWidth() / 2, model.getHeight() / 2);
         } else {
             Position newPosition = new Position(model.getBall().getPosition().getX() + model.getBall().getVector().getP().getX(),model.getBall().getPosition().getY() + model.getBall().getVector().getP().getY());
@@ -37,8 +38,10 @@ public class BallController extends Controller {
                             model.isWall(newPosition)
                                     ? model.getBall().invertVector(0)
                                     : model.getBall().invertVector(1)
+
                     )
             );
+            if(model.isPlayer(newPosition)) model.addCount(); // Incrementar counter de bounce
         }
     }
 
@@ -47,7 +50,7 @@ public class BallController extends Controller {
 
     @Override
     public void step(Application app, GUI.ACTION action, long time) {
-        if (time - lastMovement > 100) {
+        if (time - lastMovement > 100/ model.ballSpeed()) {
             moveBall();
             lastMovement = time;
         }

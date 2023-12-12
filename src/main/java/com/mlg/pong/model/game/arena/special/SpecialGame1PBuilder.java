@@ -24,6 +24,7 @@ public class SpecialGame1PBuilder extends ClassicGame1PBuilder {
         cgame.setWalls(classicGame.getWalls());
         cgame.setBall(classicGame.getBall());
         cgame.setPowerup(createPowerUP());
+        cgame.setDifficulty(difficulty);
         return cgame;
     }
 }

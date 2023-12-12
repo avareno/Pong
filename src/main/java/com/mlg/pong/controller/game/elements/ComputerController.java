@@ -8,19 +8,27 @@ import com.mlg.pong.model.game.arena.classic.ClassicGame;
 import com.mlg.pong.model.game.elements.Ball;
 import com.mlg.pong.model.game.elements.Player;
 import com.mlg.pong.model.game.elements.Player;
+import com.mlg.pong.model.menu.GameOver;
+import com.mlg.pong.states.GameOverState;
 
 import java.io.IOException;
+import java.util.Random;
 
 import static java.lang.Math.abs;
 
 public class ComputerController extends Controller {
     private ClassicGame model = (ClassicGame) getModel();
     private long lastMovement;
-    private int count = 0;
 
     public ComputerController(ClassicGame cgame) {
         super(cgame);
         this.lastMovement=0;
+    }
+
+    public int getBias() {
+        Random random = new Random();
+        return random.nextInt(0,3)/model.getDifficulty();
+
     }
 
     public int calculatePosition(Ball ball){
@@ -64,19 +72,11 @@ public class ComputerController extends Controller {
     }
     @Override
     public void step(Application app, GUI.ACTION action, long time){
-        if(count<2) {
-            if (time - lastMovement > 100) {
-                moveComputer();
-                lastMovement = time;
-            }
-        }else{
-            if (time - lastMovement > 0.0005) {
-                moveComputer();
-                lastMovement = time;
-            }
+        if (this.model.getPoints2() >= 10) app.setState(new GameOverState(new GameOver("Computer")));
+        if (time - lastMovement > 100/model.comSpeed()) {
+            moveComputer();
+            lastMovement = time;
         }
-        if(model.getBall().getPosition().getX()==(model.getPlayer2().getPosition().getX()-1)){
-            count++;
-        }
+
     }
 }
