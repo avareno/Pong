@@ -58,6 +58,7 @@ public class ClassicGame1PBuilder {
         cgame.setBall(createBall());
         cgame.setPoint1(0);
         cgame.setPoints2(0);
+        cgame.setDifficulty(difficulty);
         return cgame;
     }
 }

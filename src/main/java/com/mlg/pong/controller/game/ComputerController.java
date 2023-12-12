@@ -33,8 +33,10 @@ public class ComputerController extends Controller {
                 res1 += ball.getVector().getP().getY() + getBias();
             }
             if (res1 < model.getComputer().getPosition().getY() || res1 <= 0) {
+                if (res1 >= model.getHeight()-1) {return 0;}
                 return -1;
             } else if(res1 > model.getComputer().getPosition().getY()){
+                if (res1 <= 1) {return 0;}
                 return 1;
             }
         }
@@ -43,8 +45,11 @@ public class ComputerController extends Controller {
 
     public int getBias() {
         Random random = new Random();
-        return random.nextInt(0,3)/ model.getDifficulty();
-        
+        Random random2 = new Random();
+        if (random2.nextInt(0,1) == 0) {
+            return (random.nextInt(0,3) / model.getDifficulty());
+        }
+        return (random.nextInt(0,3) / model.getDifficulty()) * -1;
     }
 
     public void moveDownComputer(){
