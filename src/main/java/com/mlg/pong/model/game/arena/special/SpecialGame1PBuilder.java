@@ -9,6 +9,8 @@ public class SpecialGame1PBuilder extends ClassicGame1PBuilder {
 
     public SpecialGame1PBuilder(int difficulty) {
         super(difficulty);
+        this.difficulty = difficulty;
+
     }
     protected PowerUP createPowerUP(){
         PowerUP powerup = new PowerUP(1,1);

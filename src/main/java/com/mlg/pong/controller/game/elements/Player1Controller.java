@@ -31,7 +31,7 @@ public class Player1Controller extends Controller {
     @Override
     public void step(Application app, GUI.ACTION action, long time) {
         if (this.model.getPoints1() >= 10) app.setState(new GameOverState(new GameOver("Player 1")));
-        if (action == GUI.ACTION.P2UP) movePlayerUp();
-        if (action == GUI.ACTION.P2DOWN) movePlayerDown();
+        if (action == GUI.ACTION.UP) movePlayerUp();
+        if (action == GUI.ACTION.DOWN) movePlayerDown();
     }
 }

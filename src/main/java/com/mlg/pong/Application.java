@@ -38,7 +38,7 @@ public class Application {
             return classPart.substring(lastDotIndex + 1);
     }
     private void start() throws IOException {
-        int FPS = 60;
+        int FPS = 100;
         int frameTime = 1000 / FPS;
 
 

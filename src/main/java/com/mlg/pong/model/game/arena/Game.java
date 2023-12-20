@@ -12,7 +12,7 @@ public abstract class Game {
     private int width,height;
     private int points1, points2;
     private int count;
-    private int difficulty = 0;
+    private int difficulty;
 
     public void setPoints2(int points2) {
         this.points2 = points2;
